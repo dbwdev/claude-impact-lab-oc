@@ -1,0 +1,99 @@
+# Getting started
+
+Fifteen minutes from sitting down to a first result.
+
+## 1. Make your team's repo
+
+One person on the team does this.
+
+1. Open the event repo on GitHub and choose **Use this template**, then **Create a new repository**.
+2. Name it for your team, set it to **Public**, and create it.
+3. Add your teammates as collaborators under Settings, then Collaborators.
+4. Everyone clones it:
+
+   ```bash
+   git clone https://github.com/YOUR-NAME/YOUR-REPO.git
+   cd YOUR-REPO
+   ```
+
+You now have the challenges, the data and `CLAUDE.md` in a repo that is yours. Keep the license
+file. Replace the top-level `README.md` with [`templates/TEAM-README.md`](../templates/TEAM-README.md)
+when you start writing your own.
+
+Your first commit comes after 9:30 AM.
+
+## 2. Set up Claude Code
+
+Install and sign in by following <https://claude.com/claude-code>. If the event has usage credits
+for you, the organizers share how to redeem them at kickoff.
+
+Then, from your repo:
+
+```bash
+claude
+```
+
+Claude Code reads [`CLAUDE.md`](../CLAUDE.md) on start, so it already knows the event rules and
+where the data is.
+
+## 3. Get a first result
+
+Pick your challenge and ask for something small and real.
+
+**Challenge 1.** Paste the prompt in
+[`challenges/1-referral-intake/starter-prompt.md`](../challenges/1-referral-intake/starter-prompt.md).
+Claude reads the faxed packet, checks it against IHH's criteria and writes a review you can score.
+
+**Challenge 2.** Try:
+
+```text
+Read challenges/2-finding-the-right-resource/README.md, the seed directory in data/ and scenario
+C04 in scenarios/client-scenarios.json. Using only the directory, suggest up to three resources
+for this person. For each, say why it fits, what the source says about who qualifies, and how to
+make the first contact. Show the source link and the date checked. Say what you could not confirm.
+```
+
+**Challenge 3.** Try:
+
+```text
+Read challenges/3-staff-ai-confidence/README.md, roles.md and the practice-kit folder. Play the
+part of a licensed vocational nurse seeing 03-ai-draft-note.md for the first time. Then propose
+three ways to turn this kit into a ten-minute practice someone could do on a phone.
+```
+
+## 4. Decide what you are building
+
+Before you write much code, agree on one sentence as a team:
+
+> **[This person]** is trying to **[do this]**, and today **[this gets in the way]**. Our tool
+> **[does this one thing]** so they can **[outcome]**.
+
+Then go and read that sentence to an IHH staff member. If they wince, change it.
+
+## If you do not write code
+
+You are needed. Teams with someone who knows the work build better things. You can:
+
+- Own the sentence above, and be the one who talks to IHH staff.
+- Write the test cases. What would a real coordinator, client or nurse try?
+- Read every output and say what is wrong with it.
+- Write the words on the screen in plain language.
+- Run the demo.
+
+You can also build. Describe what you want to Claude in plain words and it will write the code.
+
+## Working with the faxed packets (Challenge 1)
+
+- `packet.pdf` has no text layer. Claude Code can read it directly as page images.
+- Not using Claude Code for the reading step? `text/pNN.txt` has every page as text.
+- Simple OCR gets most words right and still mangles some. Check numbers and dates.
+
+## Keep your work safe
+
+- Commit and push often.
+- Keep API keys in environment variables. `.env` is already in `.gitignore`.
+- Synthetic data only. See the [ground rules](ground-rules.md).
+
+## Submit by 4:30 PM
+
+See [submission.md](submission.md).

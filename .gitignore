@@ -1,0 +1,19 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# never commit real records; this repo is synthetic data only
+real-data/
+private/
+
+# tooling
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+dist/
+build/
+.next/
+.DS_Store

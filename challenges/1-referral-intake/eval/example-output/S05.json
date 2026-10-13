@@ -1,0 +1,70 @@
+{
+  "packet_id": "S05",
+  "recommendation": "deny",
+  "summary": "We are not able to accept this referral. The psychiatry consult on 08/31 documents command auditory hallucinations and active suicidal ideation with a plan, with an involuntary hold in place. Please re-refer if he is later stabilized and cleared by psychiatry.",
+  "findings": [
+    {
+      "rule": "MH-2",
+      "status": "not_met",
+      "evidence": [
+        {
+          "page": 12,
+          "quote": "active suicidal ideation with a plan"
+        }
+      ]
+    },
+    {
+      "rule": "MH-3",
+      "status": "not_met",
+      "evidence": [
+        {
+          "page": 12,
+          "quote": "heard a man's voice telling him to step in front of a train"
+        },
+        {
+          "page": 11,
+          "quote": "He keeps telling me to do it."
+        }
+      ]
+    },
+    {
+      "rule": "MH-1",
+      "status": "not_met",
+      "evidence": [
+        {
+          "page": 12,
+          "quote": "Involuntary psychiatric hold started 08/31/2026 14:10."
+        },
+        {
+          "page": 10,
+          "quote": "One-to-one observation ordered at 14:20. Olanzapine restarted tonight."
+        }
+      ]
+    },
+    {
+      "rule": "INT-E1",
+      "status": "met",
+      "evidence": [
+        {
+          "page": 10,
+          "quote": "Hand continues to improve on oral antibiotics."
+        }
+      ]
+    },
+    {
+      "rule": "MOB-3",
+      "status": "met",
+      "evidence": [
+        {
+          "page": 9,
+          "quote": "300 ft, independent, no device"
+        }
+      ]
+    }
+  ],
+  "missing_documents": [],
+  "follow_up_questions": [],
+  "contradictions": [
+    "The referral form (page 2) says 'Schizoaffective disorder, stable on meds'. The psychiatry consult the next day (page 12) documents command hallucinations, suicidal ideation with a plan and an involuntary hold."
+  ]
+}

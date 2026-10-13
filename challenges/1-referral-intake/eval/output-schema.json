@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Referral packet review",
+  "description": "One review per packet. This is the shape score.py reads. You may add your own fields.",
+  "type": "object",
+  "required": ["packet_id", "recommendation"],
+  "properties": {
+    "packet_id": {"type": "string", "description": "Folder name of the packet, for example S05."},
+    "recommendation": {
+      "enum": ["approve", "deny", "needs_info"],
+      "description": "A recommendation for the coordinator, who makes the decision. Use needs_info when the packet cannot support a yes or a no."
+    },
+    "summary": {"type": "string", "description": "Two or three plain sentences the coordinator could send to the hospital."},
+    "findings": {
+      "type": "array",
+      "description": "The criteria that matter for this packet. Rule IDs come from criteria/admission-criteria.json. Leave out rules that do not apply. The 'ask' rules (IDs ending in -Q1, -Q2...) are questions, not pass or fail; put their answers in the summary or follow_up_questions.",
+      "items": {
+        "type": "object",
+        "required": ["rule", "status"],
+        "properties": {
+          "rule": {"type": "string", "description": "For example MOB-3, INF-1, GI-X3, FORM-X4."},
+          "status": {
+            "enum": ["met", "not_met", "unknown"],
+            "description": "met: requirement satisfied, or the exclusion does not apply. not_met: requirement fails, or the exclusion applies. unknown: the packet does not say, or says it is still pending."
+          },
+          "note": {"type": "string", "description": "Optional. Use it when a rule is unclear or only partly applies."},
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["page"],
+              "properties": {
+                "page": {"type": "integer", "description": "Page number in packet.pdf, starting at 1."},
+                "quote": {"type": "string", "description": "The words on that page that support the finding."}
+              }
+            }
+          }
+        }
+      }
+    },
+    "missing_documents": {
+      "type": "array",
+      "description": "Checklist items not in the packet. IDs DOC-1 to DOC-10 from the referral checklist.",
+      "items": {"type": "string"}
+    },
+    "follow_up_questions": {
+      "type": "array",
+      "description": "What the coordinator should ask the hospital.",
+      "items": {"type": "string"}
+    },
+    "contradictions": {
+      "type": "array",
+      "description": "Places where two documents in the packet disagree.",
+      "items": {"type": "string"}
+    }
+  }
+}
