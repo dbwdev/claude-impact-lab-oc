@@ -2,43 +2,47 @@
 
 Fifteen minutes from sitting down to a first result.
 
-## 1. Make your team's repo
+## 1. Get the files
 
-One person on the team does this.
+Pick whichever fits your team. You can switch later.
 
-1. Open the event repo on GitHub and choose **Use this template**, then **Create a new repository**.
+**Option A: a team repo on GitHub.** Best if anyone on the team will write code. One person does
+this:
+
+1. On this repo's GitHub page, choose **Use this template**, then **Create a new repository**.
 2. Name it for your team, set it to **Public**, and create it.
-3. Add your teammates as collaborators under Settings, then Collaborators.
-4. Everyone clones it:
+3. Add your teammates under Settings, then Collaborators.
+4. Everyone gets a copy: `git clone https://github.com/YOUR-NAME/YOUR-REPO.git`, or
+   **Code**, then **Open with GitHub Desktop**.
 
-   ```bash
-   git clone https://github.com/YOUR-NAME/YOUR-REPO.git
-   cd YOUR-REPO
-   ```
+Keep the license file. When you start writing about your project, replace the top-level
+`README.md` with [`templates/TEAM-README.md`](../templates/TEAM-README.md).
 
-You now have the challenges, the data and `CLAUDE.md` in a repo that is yours. Keep the license
-file. Replace the top-level `README.md` with [`templates/TEAM-README.md`](../templates/TEAM-README.md)
-when you start writing your own.
+**Option B: download a ZIP.** Fastest if nobody on the team uses GitHub. On this repo's page,
+choose **Code**, then **Download ZIP**, and unzip it. You still need one public GitHub repo by
+4:30 PM to submit; an organizer can help you make it in five minutes.
 
-Your first commit comes after 9:30 AM.
+Either way, the template's own files do not count as your work. What you add after 9:30 AM does.
 
-## 2. Set up Claude Code
+## 2. Pick how you work with Claude
 
-Install and sign in by following <https://claude.com/claude-code>. If the event has usage credits
-for you, the organizers share how to redeem them at kickoff.
+All three work for every challenge.
 
-Then, from your repo:
+| | How | Good for |
+|---|---|---|
+| **In the browser** | Open [claude.ai](https://claude.ai), start a project, and add the files for your challenge | Teams that do not code, and Challenges 2 and 3 |
+| **Claude Code in the desktop app** | Install the [Claude app](https://claude.ai/download), open Claude Code and choose your folder | Building without a terminal |
+| **Claude Code in a terminal** | Install from [claude.com/claude-code](https://claude.com/claude-code), then run `claude` in your folder | Developers |
 
-```bash
-claude
-```
+Claude Code reads [`CLAUDE.md`](../CLAUDE.md) when it starts, so it already knows the event rules
+and where the data is. In the browser, add `CLAUDE.md` to your project too.
 
-Claude Code reads [`CLAUDE.md`](../CLAUDE.md) on start, so it already knows the event rules and
-where the data is.
+Organizers share any event credits at kickoff.
 
 ## 3. Get a first result
 
-Pick your challenge and ask for something small and real.
+Pick your challenge and ask for something small and real. In the browser, add the files each
+prompt names to your project first.
 
 **Challenge 1.** Paste the prompt in
 [`challenges/1-referral-intake/starter-prompt.md`](../challenges/1-referral-intake/starter-prompt.md).

@@ -13,6 +13,13 @@ what is in your repo at 4:30.
 
    **<https://github.com/travcjohnson/claude-impact-lab-oc/issues/new?template=submission.yml>**
 
+## New to GitHub?
+
+- One teammate with a free GitHub account is enough.
+- No code in your project? A repo with just the README and your files is fine. On GitHub, choose
+  **Add file**, then **Upload files**.
+- Stuck? Find an organizer well before 4:30.
+
 ## Before you submit
 
 - [ ] The repo is public and has a license file. MIT is the default.

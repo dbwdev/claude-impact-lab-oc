@@ -47,7 +47,7 @@ designers, and healthcare and nonprofit people. Some have never used a terminal.
   pick silently.
 - Say "unknown" when it is unknown. A confident wrong answer is the worst outcome here.
 - Keep the team's README current as you go. Submissions are due at 4:30 PM.
-- Commit often with clear messages. The first commit must be after 9:30 AM on the day.
+- Commit often with clear messages. The team's own work starts after 9:30 AM on the day.
 
 ## Challenge 1 specifics
 

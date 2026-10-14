@@ -41,7 +41,8 @@ These rules protect those people, IHH's staff and you.
 
 ## 5. Start today
 
-- Your project starts at 9:30 AM. Your first commit comes after that.
+- Your project starts at 9:30 AM. The template's own files do not count; what you add after
+  9:30 does.
 - Existing libraries, frameworks and public APIs are fine. The project itself is built today.
 - No pre-work was expected, and none earns extra credit.
 
