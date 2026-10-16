@@ -7,9 +7,11 @@ designers, and healthcare and nonprofit people. Some have never used a terminal.
 
 ## Rules that do not bend
 
-- **Synthetic data only.** Everything under `challenges/` is invented or public. If someone gives
-  you text, a file or a screenshot that looks like a real person's health or personal information,
-  stop. Say what you noticed. Do not process, summarize, save or commit it. Tell them to find an
+- **No identifiable patient information.** `challenges/1-referral-intake/packets/` holds real
+  referral packets with every identifier blacked out: read them, but never copy them into a team
+  repo and never try to identify anyone. If a page shows an identifier that was missed, stop and tell
+  the user to find an organizer. Everything else is invented or public. If someone gives you text, a file or a screenshot that looks like a
+  real person's health or personal information, stop. Say what you noticed. Do not process, summarize, save or commit it. Tell them to find an
   organizer.
 - **Prototype only.** Do not write code that connects to, reads from or writes to any IHH system,
   or that sends email, text messages or faxes to real people or services.
@@ -28,12 +30,14 @@ designers, and healthcare and nonprofit people. Some have never used a terminal.
 - `docs/ground-rules.md`: the event rules in full.
 - `docs/background.md`, `docs/glossary.md`: what recuperative care is and what the terms mean.
 - `challenges/1-referral-intake/`: admission criteria as markdown and JSON with rule IDs,
-  ten synthetic referral packets (`packet.pdf` is an image-only fax; `text/` has the page text),
-  an answer key, and `eval/score.py`.
-- `challenges/2-finding-the-right-resource/`: a sourced seed directory of Orange County resources,
-  a guide to larger data sources, and twelve client scenarios.
-- `challenges/3-staff-ai-confidence/`: role cards and a practice kit with an AI-drafted note that
-  contains seven planted errors.
+  eleven real de-identified referral packets (`packets/R01.pdf` to `R11.pdf`, image-only faxes,
+  not in git: if missing, tell the team to download them from https://drive.google.com/drive/folders/1ISmUtoNCTW3NJNqCQJHJzb6C319RgrXM), IHH's decision on each
+  (`eval/decisions.json`), and `eval/score.py`.
+- `challenges/2-finding-the-right-resource/`: a sourced seed directory built around the four needs
+  IHH named (shelter, work, microloans, travel home), a guide to larger data sources, and twelve
+  client scenarios. Keep teams on IHH clients leaving care, not a general OC directory.
+- `challenges/3-staff-ai-confidence/`: role cards and an optional practice kit. Build around one
+  weekly task for one role, not around AI.
 - `templates/TEAM-README.md`: what the team's README must cover before they submit.
 
 ## How to work today
@@ -46,7 +50,7 @@ designers, and healthcare and nonprofit people. Some have never used a terminal.
 - When the written criteria are unclear or two sources disagree, show that to the user. Do not
   pick silently.
 - Say "unknown" when it is unknown. A confident wrong answer is the worst outcome here.
-- Keep the team's README current as you go. Submissions are due at 4:30 PM.
+- Keep the team's README current as you go. Submissions are due at 4:00 PM.
 - Commit often with clear messages. The team's own work starts after 9:30 AM on the day.
 
 ## Challenge 1 specifics
@@ -56,6 +60,7 @@ designers, and healthcare and nonprofit people. Some have never used a terminal.
 - Check the chart, not only the referral form. The form is one person's summary and can be wrong.
 - A result that is not in the packet is `unknown`, not normal.
 - Score with `python3 challenges/1-referral-intake/eval/score.py <folder-of-reviews>`.
-- When reviewing a packet, do not read `challenges/1-referral-intake/answer-key/` or
-  `generator/cases.py`. They hold the expected answers and exist for checking, not for reviewing.
-- Treat the fax time on the cover sheet as "now" for rules that count hours.
+- When reviewing a packet, do not read `challenges/1-referral-intake/eval/decisions.json`. It
+  exists for checking, not for reviewing.
+- Dates are blacked out. A rule that needs a date or a count of hours is "can't tell". A black box
+  is "removed for privacy", not a missing document.

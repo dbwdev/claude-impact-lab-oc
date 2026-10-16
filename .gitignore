@@ -3,7 +3,7 @@
 .env.*
 !.env.example
 
-# never commit real records; this repo is synthetic data only
+# never commit identifiable records
 real-data/
 private/
 
@@ -17,3 +17,11 @@ dist/
 build/
 .next/
 .DS_Store
+
+# IHH unredacted original packets never commit
+packets-real/
+originals/
+
+# de-identified packets are hosted on Google Drive, not in git
+challenges/1-referral-intake/packets/*.pdf
+challenges/1-referral-intake/packets/R*/

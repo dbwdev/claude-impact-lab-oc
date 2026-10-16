@@ -1,6 +1,7 @@
 {
   "title": "Recuperative Care Admission Criteria and Eligibility Outline (adults)",
   "source": "Transcribed from the document Illumination Health + Home provided for the October 17, 2026 Claude Impact Lab. Rule text is IHH's wording. IDs and the 'kind' field were added by the organizers. Two small cleanups were made for machine use: a doubled comma in INT-E2 and the cut-off ending of DM-Q3. The markdown file keeps the source's wording, typos included.",
+  "precedence": "When the referral form screen (FORM-*) and the admission criteria outline disagree, the outline wins: it is IHH's internal rulebook. Settled conflicts: FORM-X6 (sex offender) yields to OTH-2 (case by case); FORM-M6 and FORM-X3 (walk 100 ft) yield to MOB-3 and MOB-4 (wheelchair-dependent patients who transfer independently are eligible). Where the outline is silent (tuberculosis, refusing detox), the form's exclusion applies.",
   "kinds": {
     "must": "The patient has to meet this.",
     "exclude": "The patient is not eligible if this is true.",
@@ -209,15 +210,15 @@
       {"id": "FORM-M3", "text": "The patient is AAOx4 (alert and oriented)"},
       {"id": "FORM-M4", "text": "Able to manage ADL (activities of daily living)"},
       {"id": "FORM-M5", "text": "Able to self-administer medications and manage their medication schedule with staff oversight"},
-      {"id": "FORM-M6", "text": "Capable of walking 100 ft. with or without DME and able to transfer independently"}
+      {"id": "FORM-M6", "text": "Capable of walking 100 ft. with or without DME and able to transfer independently", "superseded_by": "MOB-3, MOB-4"}
     ],
     "not_eligible_if": [
       {"id": "FORM-X1", "text": "Cognitively impaired (i.e., dementia, Alzheimer's)"},
       {"id": "FORM-X2", "text": "Unable to perform activities of daily living"},
-      {"id": "FORM-X3", "text": "Unable to transfer, ambulate 100 ft., or use DME independently"},
+      {"id": "FORM-X3", "text": "Unable to transfer, ambulate 100 ft., or use DME independently", "superseded_by": "MOB-3, MOB-4"},
       {"id": "FORM-X4", "text": "Active infection has not been cleared by a doctor or CID: MRSA, Tuberculosis, C-DIFF"},
       {"id": "FORM-X5", "text": "Non-compliance with detox treatment or a refusal to abstain from substance abuse"},
-      {"id": "FORM-X6", "text": "Registered sex offender"},
+      {"id": "FORM-X6", "text": "Registered sex offender", "superseded_by": "OTH-2"},
       {"id": "FORM-X7", "text": "Aggressive or combative behavior directed at staff or other patients"}
     ],
     "service_promise": "A decision regarding approval or denial will be communicated to the referring party within two hours of receiving the referral. If denied, a brief explanation will be provided."

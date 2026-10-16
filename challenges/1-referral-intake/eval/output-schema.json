@@ -5,7 +5,7 @@
   "type": "object",
   "required": ["packet_id", "recommendation"],
   "properties": {
-    "packet_id": {"type": "string", "description": "Folder name of the packet, for example S05."},
+    "packet_id": {"type": "string", "description": "Folder name of the packet, for example R01."},
     "recommendation": {
       "enum": ["approve", "deny", "needs_info"],
       "description": "A recommendation for the coordinator, who makes the decision. Use needs_info when the packet cannot support a yes or a no."
@@ -30,7 +30,7 @@
               "type": "object",
               "required": ["page"],
               "properties": {
-                "page": {"type": "integer", "description": "Page number in packet.pdf, starting at 1."},
+                "page": {"type": "integer", "description": "Page number in the packet PDF, starting at 1."},
                 "quote": {"type": "string", "description": "The words on that page that support the finding."}
               }
             }

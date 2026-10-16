@@ -6,6 +6,23 @@ room disagree, IHH staff are right.
 
 The same rules with stable IDs are in [`admission-criteria.json`](admission-criteria.json).
 
+## Which document wins
+
+IHH has two documents that describe eligibility, written about two years apart for different
+readers:
+
+| Document | Written | For | Character |
+|---|---|---|---|
+| This outline | November 2023 | IHH's own clinical staff | Detailed, with judgment calls ("case by case") |
+| [Referral form](referral-form-and-checklist.md) (form RC0725) | July 2025, revised October 2025 | Hospital case managers | Short, simplified, stricter |
+
+**When the two disagree, this outline wins.** It is the internal rulebook coordinators apply. The
+form is the summary hospitals see. Where this outline is silent and the form lists an exclusion
+(tuberculosis, refusing detox), the form's exclusion is the only written rule, so apply it.
+
+In practice coordinators also fill gaps from experience. The table at the end of this page lists
+where the written rules run out. A good tool shows the coordinator the gap instead of guessing.
+
 ## General admission criteria
 
 Meets one or more of the following:
@@ -329,9 +346,9 @@ Real rulebooks have gaps. A good tool shows the coordinator the gap instead of g
 
 | Where | What is unclear |
 |---|---|
-| Registered sex offenders | This document says case by case. The referral form says not eligible. |
-| Wheelchair users | This document accepts a wheelchair-dependent patient who transfers independently. The referral form asks for "walking 100 ft. with or without DME." |
-| Tuberculosis; refusing detox | Listed as exclusions on the referral form, not mentioned here. |
+| Registered sex offenders | The referral form says not eligible; this document says case by case. **Settled: case by case, with offenses involving violence likely denied.** Flag for the coordinator; never auto-deny. |
+| Wheelchair users | The referral form asks for "walking 100 ft. with or without DME." **Settled: this document applies.** A wheelchair-dependent patient who transfers independently and uses the chair independently is eligible. |
+| Tuberculosis; refusing detox | Listed as exclusions on the referral form, not mentioned here. The form's exclusion applies. |
 | "O2 baseline of 94% or greater with physician explanation" | Transcribed as written. Ask IHH what it means in practice. |
 | Last A1C | The sentence is cut off in the source. |
 | "FSP" | Not spelled out in the source. Likely Full Service Partnership, a county mental-health program. Ask IHH. |

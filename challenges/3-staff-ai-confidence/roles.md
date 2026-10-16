@@ -39,7 +39,7 @@ list of what to send.
 no to someone who needed the bed. Being blamed for a machine's mistake.
 
 **A task worth practicing.** Reading an AI summary of a referral and finding what it missed or got
-wrong before replying. Challenge 1's synthetic packets and answer key make ready practice material.
+wrong before replying. Challenge 1's packets and IHH's criteria make ready practice material.
 
 ## Case manager
 

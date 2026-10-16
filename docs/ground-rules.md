@@ -3,17 +3,19 @@
 Illumination Health + Home (IHH) cares for people at one of the hardest moments of their lives.
 These rules protect those people, IHH's staff and you.
 
-## 1. Synthetic data only
+## 1. No identifiable patient information
 
-**No real patient or client information. From anyone. For any reason.**
+**No identifiable patient or client information. From anyone. For any reason.**
 
-- Everything in this repo is made up or already public. The referral packets, the clients in the
-  scenarios and the people in the practice kit are invented.
+- The Challenge 1 packets are real referrals IHH shared for this event, with every name, date,
+  facility, address, number, signature and barcode blacked out. **Do not copy them into your team's
+  repository**, post them, or try to work out who anyone is. Point your code at them by path.
+- Everything else is made up or already public: the clients in the scenarios and the people in the
+  practice kit are invented.
 - Do not bring, type, paste, photograph or upload information about a real patient or client. That
   includes anything you know from your own job, even with the name removed.
 - IHH staff will describe their work and answer questions. They will not share real records, and
   please do not ask them to.
-- If you need more data, write more synthetic cases. The packet generator in Challenge 1 shows how.
 - **If you see something that looks like real personal or health information, stop and tell an
   organizer straight away.** Do not copy it, screenshot it or put it into any tool.
 

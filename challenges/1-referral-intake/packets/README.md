@@ -1,34 +1,56 @@
-# Synthetic referral packets
+# Real referral packets (de-identified)
 
-**Everything here is invented.** No patient, clinician, hospital, phone number, email address or
-record number in these packets is real. Each page carries a footer that says so. The cases were
-written from IHH's admission criteria and are not based on any real person's record.
+Eleven referral packets that Illumination Health + Home actually received and decided, shared by
+IHH for this event. 282 pages in all.
 
-| Packet | Pages | Fax quality |
+**De-identified to the HIPAA Safe Harbor standard.** Every name (patient, family, clinicians,
+staff), every date with a month or day, every facility other than IHH, every address, phone,
+fax, email, record or account number, signature, barcode and photo is blacked out. Everything
+clinical is left as it arrived. The redaction is burned into the page images; there is no text
+layer underneath.
+
+Rules for these files:
+
+- **Do not copy them into your team's repository** or post them anywhere. Point your code at this
+  folder.
+- **If you see a name, date, number or anything else that identifies someone, stop and tell an
+  organizer.** Do not copy it, search it or try to work out who anyone is.
+
+| Packet | Pages | What is in it |
 |---|---|---|
-| S01 | 13 | standard |
-| S02 | 13 | standard, monospace print |
-| S03 | 14 | low resolution |
-| S04 | 15 | standard |
-| S05 | 13 | standard |
-| S06 | 14 | standard |
-| S07 | 12 | standard, monospace print |
-| S08 | 13 | standard |
-| S09 | 6 | standard |
-| S10 | 14 | standard |
+| R01 | 34 | Fax cover; IHH referral form; health plan (CalAIM) authorization form, pages out of order; face sheet; 19 pages of sideways medication records; PT evaluation (upside down); progress-note fragments |
+| R02 | 22 | Fax cover; face sheet; IHH referral form; CalAIM authorization form; nursing note; labs; imaging; medication list; history and physical |
+| R03 | 23 | Fax cover; health plan authorization request; face sheet; PT evaluation; history and physical; labs; imaging; cardiac catheterization report; ECG |
+| R04 | 18 | Face sheet; IHH referral form; health plan forms; history and physical; labs; medication record; an older record scanned sideways |
+| R05 | 14 | IHH referral form; face sheet; CalAIM authorization form; history and physical; nursing flowsheets; medication record |
+| R06 | 30 | Fax cover; face sheets; medication list; history and physical; labs; imaging; progress notes; IHH referral form last |
+| R07 | 30 | Fax cover; IHH referral form; face sheet; history and physical; OT and PT evaluations; ten pages of progress notes; social work notes |
+| R08 | 29 | IHH referral form; CalAIM authorization form; history and physical; face sheet; PT evaluation; nursing notes; physician orders; labs |
+| R09 | 30 | Fax cover; face sheets (twice); medication list; history and physical; labs; progress and social work notes; OT and PT evaluations; IHH referral form last |
+| R10 | 21 | Fax cover; face sheet; history and physical; PT evaluation; psychiatry consult; progress notes; medication record. No IHH referral form |
+| R11 | 31 | Fax cover; IHH referral form; CalAIM authorization form; face sheet; wound and progress notes; consult and social work notes; labs and vitals scanned sideways |
 
-Each folder has:
+The PDFs are not in git. [Download them from Google Drive](https://drive.google.com/drive/folders/1ISmUtoNCTW3NJNqCQJHJzb6C319RgrXM) (**Download all**) and unzip
+them here as `R01.pdf` to `R11.pdf`. Image-only pages at 200 dpi, as a coordinator receives them.
 
-- `packet.pdf`: the referral as a coordinator would receive it. Image-only pages, slightly skewed
-  and speckled, no text layer. Page numbers in the answer key refer to this file.
-- `text/p01.txt` and so on: the exact text of each page.
+## What IHH decided
 
-A packet can contain any of these, in any order: fax cover sheet, IHH referral form, face sheet,
-health plan authorization request, history and physical, progress notes, consult notes, PT/OT
-evaluation, nursing assessment, vital signs, laboratory results, imaging reports, medication list,
-case management note.
+[`../eval/decisions.json`](../eval/decisions.json) has IHH's real decision for each packet: approved or denied.
+**Keep it out of your tool's sight** while it reviews a packet.
 
-Decisions and the reasons for them are in [`../answer-key/`](../answer-key/). Try a packet before
-you look.
+What it does not have: the reason. IHH's staff-only section on the referral form is blank in every
+packet, so no denial reason is written down. Working out *why*, from the chart and the criteria, is
+the coordinator's job, and a good tool shows its reasoning. IHH staff in the room can tell you
+whether your tool got it right.
 
-To make more packets, see [`../generator/`](../generator/).
+## Things to know
+
+- **Dates are blacked out.** Rules that turn on hours (24 hours on insulin, 72 hours after alcohol,
+  a COVID swab within 24 hours) often cannot be checked here. Times of day without a date are left.
+  Your tool should say "can't tell from this packet", not guess.
+- **Real packets are messy.** Pages out of order, sideways or upside down, near-blank, duplicated,
+  or from an earlier stay. Some packets have no IHH referral form at all.
+- **Charts disagree with themselves.** Ages, eyes, living situations and medication plans
+  sometimes differ from one page to the next. That is the job.
+- **Black boxes are not findings.** A blacked-out field means "removed for privacy", not "missing
+  from the packet". Do not report a redacted name or date as a missing document.

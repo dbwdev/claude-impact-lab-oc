@@ -20,7 +20,7 @@ Keep the license file. When you start writing about your project, replace the to
 
 **Option B: download a ZIP.** Fastest if nobody on the team uses GitHub. On this repo's page,
 choose **Code**, then **Download ZIP**, and unzip it. You still need one public GitHub repo by
-4:30 PM to submit; an organizer can help you make it in five minutes.
+4:00 PM to submit; an organizer can help you make it in five minutes.
 
 Either way, the template's own files do not count as your work. What you add after 9:30 AM does.
 
@@ -88,16 +88,18 @@ You can also build. Describe what you want to Claude in plain words and it will 
 
 ## Working with the faxed packets (Challenge 1)
 
-- `packet.pdf` has no text layer. Claude Code can read it directly as page images.
-- Not using Claude Code for the reading step? `text/pNN.txt` has every page as text.
+- [Download the packets](https://drive.google.com/drive/folders/1ISmUtoNCTW3NJNqCQJHJzb6C319RgrXM) into `challenges/1-referral-intake/packets/` first. They are not in
+  the repo.
+- The PDFs have no text layer. Claude Code can read them directly as page images.
 - Simple OCR gets most words right and still mangles some. Check numbers and dates.
 
 ## Keep your work safe
 
 - Commit and push often.
 - Keep API keys in environment variables. `.env` is already in `.gitignore`.
-- Synthetic data only. See the [ground rules](ground-rules.md).
+- No identifiable patient information, and do not copy the packets into your repo. See the
+  [ground rules](ground-rules.md).
 
-## Submit by 4:30 PM
+## Submit by 4:00 PM
 
 See [submission.md](submission.md).

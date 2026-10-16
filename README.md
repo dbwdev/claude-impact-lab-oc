@@ -27,23 +27,23 @@ Wi-Fi details are posted in the room.
 | 9:00 AM | Kickoff. IHH presents the three challenges. Teams form |
 | 9:30 AM | Build |
 | Around noon | Lunch at the tables |
-| **4:30 PM** | **Submissions due.** Judges visit every table |
-| 5:00 PM | Finalist demos |
+| **4:00 PM** | **Submissions due.** Judges visit every table |
+| 4:30 PM | Demos |
 | About 5:45 PM | Winners announced |
 | 6:00 PM | Close |
 
 ## The three challenges
 
-Each team picks one.
+Teams of 3 to 4. Each team picks one.
 
 | | Challenge | Who it helps |
 |---|---|---|
-| 1 | [**Referral intake**](challenges/1-referral-intake/) | The coordinator who has two hours to decide whether a hospital patient can come to recuperative care |
-| 2 | [**Finding the right resource**](challenges/2-finding-the-right-resource/) | A client working out where to turn next: shelter, work, ID, a way home |
-| 3 | [**Staff AI confidence**](challenges/3-staff-ai-confidence/) | Frontline staff who have been told AI will help and have reasons to doubt it |
+| 1 | [**Referral intake**](challenges/1-referral-intake/) | The referral coordinator, and the patient too sick to recover outside |
+| 2 | [**Finding the right resource**](challenges/2-finding-the-right-resource/) | An IHH client leaving care: shelter, work, a small loan, a way home to family |
+| 3 | [**Make AI approachable**](challenges/3-staff-ai-confidence/) | Frontline staff, LVNs and medical assistants first |
 
-Each challenge page explains the situation, who you are building for, what is in the folder and
-some ideas. The ideas are starting points. Build what your team thinks will help.
+Each challenge page has the problem, who it's for, a short brief and what's in the folder. The
+brief is a direction, not a spec. Build what your team thinks will help.
 
 New to this field? The short [background](docs/background.md) and the [glossary](docs/glossary.md)
 cover recuperative care and the terms you will hear.
@@ -59,8 +59,9 @@ cover recuperative care and the terms you will hear.
 
 ## The rules
 
-1. **Made-up data only.** No real patient or client information, from anyone, for any reason.
-   Everything in this repo is invented or already public.
+1. **No identifiable patient information.** Nothing real about a patient or client, from anyone,
+   for any reason. The Challenge 1 packets are real referrals with every identifier blacked out. Do
+   not copy them into your repo. Everything else is invented or already public.
 2. **Prototypes only.** Nothing connects to or changes IHH's systems.
 3. **People decide.** Your tool helps a coordinator, client or staff member. It does not decide
    for them.
@@ -69,23 +70,22 @@ cover recuperative care and the terms you will hear.
 
 The full version, with the reasons, is in [ground rules](docs/ground-rules.md).
 
-## Submit by 4:30 PM
+## Submit by 4:00 PM
 
-One per team: a public GitHub repo with a README, plus the submission form on this repo. A short
+One per team: a public GitHub repo with a README, plus the submission form at [claudesocal.com/oc-impact-lab](https://claudesocal.com/oc-impact-lab#submit). A short
 screen recording helps. [How to submit](docs/submission.md).
 
 ## Judging
 
-Four things, scored 0 to 5. Day-one impact counts double.
+The judges, including IHH, score every project from 1 to 5 in three areas. The areas are weighted:
 
-| Criterion | The question |
-|---|---|
-| **Day-one impact** | Is it ready to be used, and would it matter on day one? |
-| **Product** | Could the person it is for use it without help? |
-| **Idea** | Is it a creative, original way in? |
-| **Clarity of the demo** | Are the problem, the user and the outcome obvious? |
+| Weight | Area | The question |
+|---|---|---|
+| **40%** | **Day-one impact** | Is it ready to be used, and would it matter on day one? |
+| **35%** | **Product and idea** | Could the person it is for use it without help? Is it a creative, useful way in? |
+| **25%** | **Clarity of the demo** | Are the problem, the user and the outcome obvious? |
 
-Slides without a working demo do not score. The full card is in [judging](docs/judging.md).
+Slides without a working demo do not place. More in [judging](docs/judging.md).
 
 ## Help
 
@@ -103,11 +103,11 @@ docs/
   getting-started.md   get the files, set up Claude, first prompts
   ground-rules.md      the rules in full
   submission.md        what to hand in and how
-  judging.md           the scoring card
+  judging.md           how winners are picked
   background.md        recuperative care and IHH in two pages
   glossary.md          the terms you will hear
 challenges/
-  1-referral-intake/              criteria, made-up packets, answer key, scorer, generator
+  1-referral-intake/              de-identified packets, IHH's criteria and decisions, scorer
   2-finding-the-right-resource/   resource directory, data sources, client scenarios
   3-staff-ai-confidence/          role cards, practice kit
 templates/TEAM-README.md          the README your team's repo needs

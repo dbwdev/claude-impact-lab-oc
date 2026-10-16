@@ -4,7 +4,7 @@
 
 **Team:** [team name]
 **Members:** [names]
-**Challenge:** [1 Referral intake | 2 Finding the right resource | 3 Staff AI confidence]
+**Challenge:** [1 Referral intake | 2 Finding the right resource | 3 Make AI approachable]
 **Built at:** Orange County | Claude Impact Lab, October 17, 2026, with Illumination Health + Home
 
 ## The problem
@@ -50,7 +50,7 @@ What it would take to pilot this. What we would do with one more week.
 
 ## Data and privacy
 
-This project uses only synthetic data from the event repo and public sources. It contains no real
+This project uses only data from the event repo and public sources. It contains no real
 patient or client information. It does not connect to any Illumination Health + Home system.
 
 ## License

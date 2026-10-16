@@ -13,8 +13,7 @@ What to expect, in two minutes.
 ## What the day looks like
 
 Kickoff is about half an hour. Then you build for most of the day, with lunch at your table.
-At 4:30 PM you hand in what you have, and judges come to every table to see it working.
-A few finalists then show their work to the room.
+At 4:00 PM you hand in what you have and the judges review every project. Demos run from 4:30.
 
 ## What usually works
 

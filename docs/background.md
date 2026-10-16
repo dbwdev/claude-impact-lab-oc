@@ -11,9 +11,8 @@ housing, and hope—together" ([IHH](https://illuminationhealthhome.org/mission-
 
 It runs recuperative care centers, navigation centers, family emergency homes and permanent
 supportive housing, with behavioral health and substance use counseling
-([IHH services](https://illuminationhealthhome.org/services/)). IHH reports serving 6,826 people in
-its 2024-25 fiscal year, 2,329 of them in recuperative care
-([IHH](https://illuminationhealthhome.org/)).
+([IHH services](https://illuminationhealthhome.org/services/)). Its 2024 Impact Report counts 7,282 clients
+served, 2,287 of them in recuperative care ([IHH](https://illuminationhealthhome.org/)).
 
 ## What recuperative care is
 

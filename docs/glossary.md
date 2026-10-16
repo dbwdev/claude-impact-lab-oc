@@ -87,4 +87,4 @@ with IHH staff.
 | **PHI** | Protected health information: health information that can be tied to a person |
 | **HIPAA** | The U.S. law that protects PHI |
 | **De-identified** | Stripped of everything that could identify the person. Harder to do well than it sounds |
-| **Synthetic** | Made up. All the data in this repo |
+| **De-identified packet** | A real record with every identifier blacked out. The Challenge 1 packets |
