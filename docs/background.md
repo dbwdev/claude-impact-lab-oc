@@ -14,8 +14,8 @@ supportive housing, with behavioral health and substance use counseling
 ([IHH services](https://illuminationhealthhome.org/services/)). Its 2024 Impact Report counts 7,282 clients
 served, 2,287 of them in recuperative care ([IHH](https://illuminationhealthhome.org/)).
 
-Watch IHH's own films:
-[From Streets to Stability](https://www.youtube.com/watch?v=Jyu6g8q7sWY), on recuperative care (5:38), and
+Two short films about IHH:
+[From Streets to Stability](https://www.youtube.com/watch?v=Jyu6g8q7sWY), on recuperative care, from the California Health Care Foundation (5:38), and
 [10 Years of Family Emergency Homes](https://www.youtube.com/watch?v=FQWH8vxE25I) (3:45).
 
 ## What recuperative care is
