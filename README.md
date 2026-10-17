@@ -51,6 +51,10 @@ brief is a direction, not a spec. Build what your team thinks will help.
 New to this field? The short [background](docs/background.md) and the [glossary](docs/glossary.md)
 cover recuperative care and the terms you will hear.
 
+Two short films from IHH show who you are building for:
+[Recuperative care](https://www.youtube.com/watch?v=Jyu6g8q7sWY) (5:38) and
+[Family Emergency Homes](https://www.youtube.com/watch?v=FQWH8vxE25I) (3:45).
+
 ## Your first 15 minutes
 
 1. **Get the files.** Use this repo as a template for your team, or download it as a ZIP.
