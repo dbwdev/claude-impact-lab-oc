@@ -152,8 +152,9 @@ it is large. The agent drafts messages; it never sends them (event ground rule 2
 - **Cost and time.** A fresh run is about $1.50 and ~1.5 minutes. Re-running a cached packet is
   free and instant. `force=true` throws the cache away: avoid it in the demo.
 - **Concurrency.** Two runs at a time; more queue. The server is single-process: run one.
-- **Network blips.** The model APIs sometimes fail with connection errors. Starting the same run
-  again resumes from cache. The CLI retries 3 times automatically.
+- **Network blips.** The model APIs sometimes fail with connection errors. A stream that goes
+  silent for 90 s is dropped and retried. Starting the same run again resumes from cache (pages
+  and each finished review section). The CLI retries 3 times automatically.
 - **Ports and CORS.** Default `127.0.0.1:8000` (`--port`, `--host` to change). CORS allows
   `http://localhost:3000` only; edit `server.py` if Next.js runs elsewhere.
 - **Uploaded packets** are saved into the packets folder under a sanitized filename and are

@@ -22,6 +22,11 @@ on insulin, 72 hours after alcohol, a swab within 24 hours) is "cant_tell_redact
 packet states the interval in words.
 - [REDACTED] marks a privacy redaction, not a missing document or a finding.
 - Pages marked prior_stay may describe an earlier admission; say so if you rely on one.
+- Judge the patient as they will be when they arrive at recuperative care, not at their worst \
+during the hospital stay. A treatment, device, assistance level or symptom documented earlier \
+in the stay counts against a rule only if the chart shows it continues at discharge. If the \
+packet does not show whether it continues, the status is "unknown" and the question goes to \
+questions_for_hospital; it is not "fails".
 - Precedence: the admission criteria outline wins over the referral form (FORM-*). Rules with \
 superseded_by are judged by the superseding rule; mark the FORM rule "not_applicable" when the \
 superseding rule covers it. Where the outline is silent (tuberculosis, refusing detox) the \
@@ -102,8 +107,11 @@ def _review_single(pages: list[Page]) -> PacketReview:
                      effort=config.REVIEW_EFFORT, max_tokens=64000)
 
 
-def _review_sectioned(pages: list[Page], on_section=None) -> PacketReview:
+def _review_sectioned(packet_id: str, pages: list[Page], on_section=None) -> PacketReview:
     sections = section_ids()
+    # Each finished section is cached, so a retry after a dropped connection redoes only the rest.
+    part_dir = config.CACHE_DIR / packet_id / "review-sections"
+    part_dir.mkdir(parents=True, exist_ok=True)
     packet = _packet_block(pages)
     primed = threading.Event()
 
@@ -111,13 +119,23 @@ def _review_sectioned(pages: list[Page], on_section=None) -> PacketReview:
 
     def run(name: str, ids: list[str]):
         overview = name == "overview"
+        model = PacketReview if overview else SectionReview
+        part_file = part_dir / f"{name}.json"
+        if part_file.exists():
+            if overview:
+                primed.set()
+            result = model.model_validate_json(part_file.read_text())
+            if on_section:
+                on_section(name, result, 0.0)
+            return name, result
         if not overview:
             # Start after the overview call has processed (and cached) the shared prompt.
             primed.wait(timeout=20)
-        result = llm.parse(output=PacketReview if overview else SectionReview, system=_system(),
+        result = llm.parse(output=model, system=_system(),
                            content=[packet, {"type": "text", "text": _task(ids, overview)}],
                            effort=config.REVIEW_EFFORT, max_tokens=32000,
                            on_start=primed.set if overview else None)
+        part_file.write_text(result.model_dump_json(indent=1))
         if on_section:
             on_section(name, result, round(time.monotonic() - t0, 1))
         return name, result
@@ -143,7 +161,7 @@ def review_packet(packet_id: str, pages: list[Page], on_section=None) -> PacketR
     if cache.exists():
         return PacketReview.model_validate_json(cache.read_text())
     if config.REVIEW_MODE == "sectioned":
-        review = _review_sectioned(pages, on_section)
+        review = _review_sectioned(packet_id, pages, on_section)
     else:
         review = _review_single(pages)
     cache.write_text(review.model_dump_json(indent=1))

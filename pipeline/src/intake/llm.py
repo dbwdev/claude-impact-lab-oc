@@ -16,7 +16,8 @@ usage: dict[str, int] = {"input_tokens": 0, "output_tokens": 0, "cache_read_inpu
 def client() -> anthropic.Anthropic:
     global _client
     if _client is None:
-        _client = anthropic.Anthropic(max_retries=4)
+        # A stream that goes silent for 90 s is treated as dropped and retried by the SDK.
+        _client = anthropic.Anthropic(max_retries=4, timeout=anthropic.Timeout(600, read=90, connect=10))
     return _client
 
 

@@ -106,6 +106,7 @@ def start_run(packet_id: str, force: bool = False) -> RunStarted:
         shutil.rmtree(config.CACHE_DIR / packet_id / "transcripts", ignore_errors=True)
         for f in (config.CACHE_DIR / packet_id).glob("review-*.json"):
             f.unlink()
+        shutil.rmtree(config.CACHE_DIR / packet_id / "review-sections", ignore_errors=True)
     run = Run(run_id=uuid.uuid4().hex[:12], packet_id=packet_id)
     _runs[run.run_id] = run
 

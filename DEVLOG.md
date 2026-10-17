@@ -10,7 +10,8 @@ on top. Keep entries short: what changed, what we decided, what's next.
 - **Integration point:** `pipeline/out/<packet>.json`, shaped by `PacketResult` in
   `pipeline/src/intake/schemas.py`. JSON Schema export: `pipeline/contract/packet-result.schema.json`.
   Teammate's Next.js + Supabase + eve app consumes this.
-- **Status:** all 11 packets run; `uv run intake eval` → 7/11 agree with IHH. API server works.
+- **Status:** all 11 packets run; `uv run intake eval` → **9/11** agree with IHH (after the
+  discharge-status prompt fix; was 7/11). API server works.
   Sectioned parallel review is the default: ~1.5 min per fresh packet (was ~3.7).
 - **Verified offline (no API):** render (R05, 14 pages in ~4 s), schema export, quote check,
   recommendation logic. An unverified "fails" goes to `needs_full_read`, not to deny.
@@ -97,6 +98,22 @@ write to Supabase from the Next.js side. An eve tool can do the same (POST, then
 - Refusal fallbacks (`fallbacks: "default"`) not wired yet; refusals raise `RefusalError`.
 
 ## Log
+
+### 2026-10-17 ~14:15: discharge-status prompt fix → 9/11; stall-proofing
+
+- Prompt (`review.INSTRUCTIONS`, worded generically, no case details): judge the patient as
+  they will arrive at recuperative care; something documented earlier in the stay counts
+  against a rule only if the chart shows it continues at discharge, otherwise "unknown" plus a
+  hospital question, not "fails".
+- Eval 7/11 → **9/11**. R07, R08 flipped to approve; their former fails became unknowns whose
+  reasoning cites the missing discharge plan (the intended behavior). Denials R01/R09/R10 held.
+- Side effect: more unknowns overall (hard rules: 10 meets→unknown, 15 judgment→unknown,
+  7 fails→unknown). Some is run-to-run noise (one run per version), so don't over-read it.
+- Remaining misses: R03 (CARD-5 written threshold vs IHH practice: ask IHH staff) and R05
+  (judgment calls GEN-1 / OTH-1 / FORM-X7, not auto-denied). Not prompt bugs; **stop tuning
+  here**: labels are seen, further changes would fit these 11.
+- A connection drop stalled one run for 8+ min (SDK default timeout 10 min). Now: 90 s stream
+  read timeout (SDK retries), and each review section cached so a retry redoes only the rest.
 
 ### 2026-10-17 ~14:00: latency 2–2.5x faster with sectioned review
 
