@@ -93,8 +93,9 @@ Known weaknesses:
 - **The transcript is AI output too.** Handwriting, faint faxes and sideways tables can be
   misread. Quotes are checked against our transcript, not the image, so the UI must show the page
   image next to every quote.
-- **Findings vary between runs.** Approve/deny calls were the same on all 11 packets across three
-  review setups, but individual rule findings (e.g. "meets" vs "unknown") change from run to run.
+- **Findings vary between runs.** With the same prompt, the one-call and six-call reviews gave
+  the same approve/deny on all 11 packets, but individual rule findings (e.g. "meets" vs
+  "unknown") change from run to run.
 - **Dates are blacked out**, so any rule with a time window (insulin within 24 h, 72 h after
   alcohol, a swab within 24 h) is `cant_tell_redacted`.
 - **Adult criteria only.** The children's criteria aren't implemented.
