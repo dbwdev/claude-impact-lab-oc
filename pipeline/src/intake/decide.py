@@ -52,7 +52,10 @@ def recommend(review: PacketReview, flags: list[VerificationFlag], docs: list[Ch
             (unverified_fails if f.rule_id in flagged else hard_fails).append(_label(f.rule_id, f.reasoning))
         elif f.status == "needs_judgment" or (f.status == "fails" and f.rule_id in NEVER_AUTO_DENY):
             judgment.append(_label(f.rule_id, f.reasoning))
-        elif f.status == "unknown" and (hard or rule.kind == "document"):
+        elif (f.status == "unknown" and (hard or rule.kind == "document")) or (
+            f.status == "fails" and rule.kind in ("document", "ask")
+        ):
+            # A missing document or unanswered question is something to request, not a denial.
             open_q.append(_label(f.rule_id, f.reasoning))
         elif f.status == "cant_tell_redacted" and hard:
             at_admission.append(_label(f.rule_id, f.reasoning))

@@ -7,6 +7,7 @@ c) Jev Noul: for an "unknown", do the most relevant pages actually answer the ru
 
 import os
 import re
+import time
 from concurrent.futures import ThreadPoolExecutor
 
 from rapidfuzz import fuzz, process
@@ -50,8 +51,9 @@ def check_quotes(review: PacketReview, pages: list[Page]) -> list[VerificationFl
 
 def check_coverage(review: PacketReview) -> list[VerificationFlag]:
     seen = {f.rule_id for f in review.findings}
+    table = criteria.rules()
     return [VerificationFlag(rule_id=rid, check="missing_rule", detail="Reviewer returned no finding.")
-            for rid in criteria.required_ids() if rid not in seen]
+            for rid in criteria.required_ids() if rid not in seen and not table[rid].superseded_by]
 
 
 # ---- Jev ----------------------------------------------------------------------------------------
@@ -59,6 +61,16 @@ def check_coverage(review: PacketReview) -> list[VerificationFlag]:
 
 def jev_enabled() -> bool:
     return bool(os.environ.get("TYPESAFE_API_KEY"))
+
+
+def _ask(client, **kwargs):
+    for attempt in range(3):
+        try:
+            return client.system_one(**kwargs)
+        except Exception:
+            if attempt == 2:
+                raise
+            time.sleep(1 + 2 * attempt)
 
 
 def _support_check(client, f: RuleFinding, rule_text: str, pages: dict[int, Page]) -> list[VerificationFlag]:
@@ -72,7 +84,7 @@ def _support_check(client, f: RuleFinding, rule_text: str, pages: dict[int, Page
         "claim": f.claim,
         "pages": [{"page": n, "text": pages[n].transcript} for n in cited[:3]],
     }
-    resp = client.system_one(
+    resp = _ask(client, 
         state=state,
         questions={
             "relation": Choice(
@@ -106,7 +118,7 @@ def _absence_check(client, f: RuleFinding, rule_text: str, pages: list[Page]) ->
                           scorer=fuzz.token_set_ratio, limit=3)
     state = {"rule": rule_text,
              "pages": [{"page": key, "text": pages[key - 1].transcript} for _, _, key in top]}
-    resp = client.system_one(
+    resp = _ask(client, 
         state=state,
         questions={
             "answered": Noul(instructions=(
@@ -137,7 +149,8 @@ def jev_checks(review: PacketReview, pages: list[Page]) -> list[VerificationFlag
         elif f.status == "unknown":
             jobs.append(("absence", f, rule.text))
     flags: list[VerificationFlag] = []
-    with TypeSafeClient() as client, ThreadPoolExecutor(8) as pool:
+    errors: list[str] = []
+    with TypeSafeClient() as client, ThreadPoolExecutor(4) as pool:
         futures = [
             pool.submit(_support_check, client, f, t, by_no) if kind == "support"
             else pool.submit(_absence_check, client, f, t, pages)
@@ -147,8 +160,10 @@ def jev_checks(review: PacketReview, pages: list[Page]) -> list[VerificationFlag
             try:
                 flags.extend(fut.result())
             except Exception as e:  # a verifier outage must not hide the review
-                flags.append(VerificationFlag(rule_id="*", check="low_verifier_confidence",
-                                              detail=f"Jev check failed: {e}"))
+                errors.append(f"{type(e).__name__}: {e}")
+    if errors:
+        flags.append(VerificationFlag(rule_id="*", check="verifier_unavailable",
+                                      detail=f"{len(errors)}/{len(jobs)} Jev checks failed; first: {errors[0]}"))
     return flags
 
 

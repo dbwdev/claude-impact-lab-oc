@@ -2,7 +2,7 @@
 
 import base64
 import json
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 from . import config, llm
@@ -53,7 +53,7 @@ def transcribe_page(path: Path, page_no: int, total: int, cache: Path) -> Page:
     return page
 
 
-def transcribe_packet(packet_id: str, page_paths: list[Path]) -> list[Page]:
+def transcribe_packet(packet_id: str, page_paths: list[Path], on_page=None) -> list[Page]:
     cache_dir = config.CACHE_DIR / packet_id / "transcripts"
     cache_dir.mkdir(parents=True, exist_ok=True)
     total = len(page_paths)
@@ -62,6 +62,9 @@ def transcribe_packet(packet_id: str, page_paths: list[Path]) -> list[Page]:
             pool.submit(transcribe_page, p, i + 1, total, cache_dir / f"p{i + 1:03d}.json")
             for i, p in enumerate(page_paths)
         ]
+        if on_page:
+            for f in as_completed(futures):
+                on_page(f.result(), total)
         return [f.result() for f in futures]
 
 

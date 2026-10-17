@@ -30,6 +30,26 @@ uv run intake schema          # rewrite contract/packet-result.schema.json
 
 Delete `.cache/<ID>/review.json` to re-run only the review after prompt changes.
 
+## HTTP API (`uv run intake serve` → http://localhost:8000, OpenAPI at `/docs`)
+
+No database in the pipeline. It is stateless apart from a file cache; the app (Supabase) owns
+persistence. Run it on the demo laptop next to Next.js. CORS allows `localhost:3000`.
+
+| Method | Path | What |
+|---|---|---|
+| GET | `/health` | `{ok, model}` |
+| GET | `/packets` | packets on disk + latest bucket if run |
+| POST | `/packets` (multipart `file`) | add an unseen packet (judge hand-off) |
+| POST | `/packets/{id}/runs?force=false` | start a run → 202 `{run_id, events_url, result_url}` |
+| GET | `/runs/{run_id}/events` | **SSE**: `stage`, `page`, `halt`, `done`, `result`, `error`; replays from start for late clients |
+| GET | `/runs/{run_id}` | run status + all events so far |
+| GET | `/packets/{id}/result` | full `PacketResult` JSON (the contract) |
+| GET | `/packets/{id}/pages/{n}` | upright page JPEG, to show next to a cited quote |
+| GET | `/contract` | JSON Schema of `PacketResult` |
+
+Client flow: POST run → open `EventSource(events_url)` → on `result` event GET `result_url` →
+write to Supabase from the Next.js side. An eve tool can do the same (POST, then poll `/runs/{id}`).
+
 ## Team and split
 
 - Teammate: eve project, Next.js + Supabase full stack, agent templates, screens (a Claude

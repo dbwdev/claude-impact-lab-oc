@@ -133,6 +133,7 @@ class VerificationFlag(BaseModel):
         "low_verifier_confidence",
         "unknown_may_be_answered",
         "missing_rule",
+        "verifier_unavailable",
     ]
     detail: str
     verifier_score: float | None = None

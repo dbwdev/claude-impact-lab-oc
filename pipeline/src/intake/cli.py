@@ -18,7 +18,16 @@ def main() -> int:
     ren.add_argument("packets", nargs="+")
     sub.add_parser("eval", help="compare out/*.json to IHH decisions")
     sub.add_parser("schema", help="write the JSON Schema contract")
+    srv = sub.add_parser("serve", help="run the HTTP API")
+    srv.add_argument("--host", default="127.0.0.1")
+    srv.add_argument("--port", type=int, default=8000)
     args = ap.parse_args()
+
+    if args.cmd == "serve":
+        import uvicorn
+
+        uvicorn.run("intake.server:app", host=args.host, port=args.port)
+        return 0
 
     if args.cmd == "schema":
         from .schemas import PacketResult
@@ -51,10 +60,14 @@ def main() -> int:
 
     failed = []
     for pdf in pdfs:
-        try:
-            run_packet(pdf)
-        except Exception as e:
-            print(f"[{pdf.stem}] FAILED: {type(e).__name__}: {e}", file=sys.stderr)
+        # Pages and reviews are cached, so a retry resumes where the last attempt stopped.
+        for attempt in range(3):
+            try:
+                run_packet(pdf)
+                break
+            except Exception as e:
+                print(f"[{pdf.stem}] attempt {attempt + 1} FAILED: {type(e).__name__}: {e}", file=sys.stderr)
+        else:
             failed.append(pdf.stem)
     from . import llm
 
