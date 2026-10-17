@@ -4,13 +4,14 @@
 
 | Time | What happens |
 |---|---|
-| 4:00 PM | Submissions close. Judges start reviewing every submission |
-| 4:30 to 5:30 PM | Demos |
+| 4:00 PM | Submissions close. Judges review every submission and vote for the demos they want to see |
+| 4:30 to 5:30 PM | Finalist demos, in order. When called, join the [demo call](https://meet.google.com/ajf-fryh-age) and share your screen |
 | 5:30 to 5:45 PM | Judges rank the projects and agree the winners |
 | 5:45 PM | Winners announced |
 | 6:00 PM | Closing announcement and clean up |
 
-The demo format is announced on the day. Keep your project running at your table either way.
+The finalists are the submissions with the most judge votes, with at least two from each challenge. Keep
+your project running and ready to share either way.
 
 The panel includes the organizer and Illumination Health + Home (IHH) staff. IHH's view of what
 would help on day one carries the most weight.

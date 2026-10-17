@@ -28,8 +28,8 @@ Wi-Fi details are posted in the room.
 | 9:00 AM | Kickoff. IHH presents the three challenges. Teams form |
 | 9:30 AM | Build |
 | Around noon | Lunch at the tables |
-| **4:00 PM** | **Submissions due.** Judges visit every table |
-| 4:30 to 5:30 PM | Demos |
+| **4:00 PM** | **Submissions due.** Judges review every submission and pick the finalists |
+| 4:30 to 5:30 PM | Finalist demos. When called, join the [demo call](https://meet.google.com/ajf-fryh-age) and share your screen |
 | 5:30 PM | Judges rank |
 | 5:45 PM | Winners announced |
 | 6:00 PM | Closing announcement and clean up |

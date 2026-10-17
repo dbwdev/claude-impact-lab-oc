@@ -30,8 +30,9 @@ what is in your repo at 4:00.
 
 ## After 4:00
 
-Judges review every submission. Keep it running at your table. Demos run 4:30 to 5:30 PM; the format
-is announced on the day. Judges rank at 5:30 and winners are announced at 5:45 PM.
+Judges review every submission and vote for the demos they want to see. From 4:30, finalists are
+called one at a time: join the [demo call](https://meet.google.com/ajf-fryh-age) and share your screen. Keep your project running
+and ready. Judges rank at 5:30 and winners are announced at 5:45 PM.
 
 ## After today
 
