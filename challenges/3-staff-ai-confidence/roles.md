@@ -1,8 +1,7 @@
 # Role cards
 
 Drafted by the organizers from a planning conversation with IHH's leadership team and from public
-descriptions of recuperative care. They are a starting point. Check them with IHH staff in the
-room before you design around them.
+descriptions of recuperative care. They are a starting point.
 
 One fact shapes all three roles. In recuperative care, clients look after themselves: they take
 their own medications and manage their own daily care. Staff monitor, teach, coordinate and
