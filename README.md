@@ -35,7 +35,8 @@ Wi-Fi details are posted in the room.
 
 ## The three challenges
 
-Teams of 3 to 4. Each team picks one.
+Teams of up to 4. Each team picks one. At kickoff, say which challenge you want and what you
+bring, and find people who fit.
 
 | | Challenge | Who it helps |
 |---|---|---|
@@ -62,8 +63,7 @@ cover recuperative care and the terms you will hear.
    for any reason. The Challenge 1 packets are real referrals with every identifier blacked out. Do
    not copy them into your repo. Everything else is invented or already public.
 2. **Prototypes only.** Nothing connects to or changes IHH's systems.
-3. **People decide.** Your tool helps a coordinator, client or staff member. It does not decide
-   for them.
+3. **Build in quality control.** AI makes mistakes. Build in a way to catch them. How is up to you.
 4. **Start today.** Build after 9:30 AM. Libraries and frameworks are fine.
 5. **Open source.** Public repo, open license, donated to IHH.
 

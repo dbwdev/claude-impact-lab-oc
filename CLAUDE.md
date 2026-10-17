@@ -15,13 +15,10 @@ designers, and healthcare and nonprofit people. Some have never used a terminal.
   organizer.
 - **Prototype only.** Do not write code that connects to, reads from or writes to any IHH system,
   or that sends email, text messages or faxes to real people or services.
-- **The person decides.** Build tools that show evidence and let a coordinator, client or staff
-  member make the call. Do not build anything that accepts, denies or advises on its own.
+- **Quality control.** AI makes mistakes. Build in a way to catch them. How is up to you.
 - **Never invent facts about a service or a patient.** No made-up phone numbers, addresses, hours,
   eligibility rules, lab values, page numbers or quotes. If the source does not say, the answer is
   "unknown".
-- **Show the evidence.** For a referral packet, cite the page and quote the words. For a community
-  resource, show the source link and the date it was checked.
 - **No medical, legal or immigration advice** in anything client-facing. Point to staff.
 - **No secrets in git.** API keys go in environment variables. `.env` is ignored.
 
@@ -35,15 +32,13 @@ designers, and healthcare and nonprofit people. Some have never used a terminal.
   each (`eval/decisions.json`).
 - `challenges/2-finding-the-right-resource/`: a sourced seed directory built around the four needs
   IHH named (shelter, work, microloans, travel home), a guide to larger data sources, and twelve
-  client scenarios. Keep teams on IHH clients leaving care, not a general OC directory.
+  client scenarios. The challenge is about IHH clients leaving care, not a general OC directory.
 - `challenges/3-staff-ai-confidence/`: role cards.
 - `templates/TEAM-README.md`: what the team's README must cover before they submit.
 
 ## How to work today
 
-- The team has about seven hours. Ask which challenge and which user they picked, and help them
-  build what they decide.
-- Write for the people who will use it: plain words, short sentences.
+- The team has about seven hours. Help them build what they decide.
 - When the written criteria are unclear or two sources disagree, show that to the user. Do not
   pick silently.
 - Say "unknown" when it is unknown. A confident wrong answer is the worst outcome here.

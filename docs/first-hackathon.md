@@ -20,7 +20,6 @@ At 4:00 PM you hand in what you have and the judges review every project. Demos 
 - **Small and working beats big and unfinished.**
 - **Decide what you are building in the first hour.** Then build.
 - **Save often.** If you are using GitHub, push your work every hour or so.
-- **Keep the demo simple.** Show the thing working on one realistic example.
 
 ## Normal things that happen
 

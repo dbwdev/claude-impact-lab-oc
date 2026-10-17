@@ -31,7 +31,7 @@ organizer.
 
 ## Guardrail
 
-The coordinator decides. Your tool never accepts or denies anyone.
+AI makes mistakes. Build in a way to catch them. How is up to you.
 
 ## Why it's hard
 

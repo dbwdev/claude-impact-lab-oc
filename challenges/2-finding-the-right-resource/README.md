@@ -20,8 +20,7 @@ directory.
 
 ## Guardrails
 
-Never invent a service fact. Show the source and date. When unsure, hand off to staff. Your tool
-sends nothing. If someone says they are in danger, give the hotline and bring in staff, and never
+Never invent a service fact. Your tool sends nothing. If someone says they are in danger, give the hotline and bring in staff, and never
 show the address of a domestic violence shelter.
 
 ## What's in this folder

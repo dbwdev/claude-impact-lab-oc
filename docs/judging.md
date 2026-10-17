@@ -29,14 +29,6 @@ view counting most.
 
 A perfect project scores 5 in all three, a weighted total of 5.0.
 
-## What does well here
-
-- **It shows its evidence.** Page numbers, quotes, sources, dates.
-- **It knows what it does not know.** Tools that say "unknown" or "ask staff" at the right moment
-  do better than tools that always have an answer.
-- **It respects the person.** Plain words. No jargon for clients. Staff stay in control.
-- **It is honest.** Say what is real, what is mocked and where it fails.
-
 ## What does not place
 
 - Slides without a working demo.

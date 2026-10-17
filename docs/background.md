@@ -78,5 +78,3 @@ the same thing from both sides. Staff "described substantial burdens to receivin
 referrals, authorizations, claims, and reimbursements." Hospital staff "felt some recuperative care
 programs have onerous eligibility restrictions"
 ([National Institute for Medical Respite Care, 2024](https://nhchc.org/wp-content/uploads/2024/01/Lessons-Learned-Cal-AIM-implementation-of-recuperative-care-benefit-8.pdf)).
-
-Faster, clearer answers to referrals help both.

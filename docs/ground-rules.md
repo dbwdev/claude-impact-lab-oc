@@ -26,12 +26,9 @@ These rules protect those people, IHH's staff and you.
 - Nothing is installed at IHH today. If IHH wants to take a prototype further after the event,
   that is a separate conversation between IHH and the team.
 
-## 3. People decide
+## 3. Build in quality control
 
-- A referral coordinator decides whether to accept a referral. A client decides what to share and
-  what to do next. A nurse decides what goes in a note.
-- Build tools that do the reading, show their evidence and make checking easy. Do not build tools
-  that decide.
+- AI makes mistakes. Build in a way to catch them. How is up to you.
 - Nothing client-facing gives medical, legal or immigration advice.
 
 ## 4. Do not invent facts

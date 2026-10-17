@@ -13,7 +13,7 @@ Who is the person, what are they trying to do, and what gets in the way today? T
 
 ## What we built
 
-What it does for that person. One workflow. A screenshot or a short clip helps.
+What it does. A screenshot or a short clip helps.
 
 **Demo video:** [link]
 
@@ -39,10 +39,6 @@ What someone needs installed, and any environment variables. No keys in the repo
 ## Where it gets things wrong
 
 What we saw it miss, and what we would not trust it with yet.
-
-## What IHH staff told us
-
-Who we showed it to, what they said, and what we changed.
 
 ## Next steps
 
