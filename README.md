@@ -15,7 +15,8 @@ Organized by Claude Community Orange County. Hosted by EvoNexus Irvine.
 
 - A laptop and its charger
 - A free [GitHub](https://github.com/signup) account. One per team is enough to start
-- A Claude account at [claude.ai](https://claude.ai). Organizers share any event credits at kickoff
+- A Claude account at [claude.ai](https://claude.ai)
+- Event credits: $100 in Claude API credits per person (API only, not Claude.ai). Claim at https://platform.claude.com/offers/e6957ff5-5a6b-438e-957b-d6a2a8efffba using your Org ID from [console.anthropic.com](https://console.anthropic.com), not your Claude.ai ID. One claim per person
 
 Wi-Fi details are posted in the room.
 

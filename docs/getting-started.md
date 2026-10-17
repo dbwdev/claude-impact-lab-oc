@@ -37,7 +37,7 @@ All three work for every challenge.
 Claude Code reads [`CLAUDE.md`](../CLAUDE.md) when it starts, so it already knows the event rules
 and where the data is. In the browser, add `CLAUDE.md` to your project too.
 
-Organizers share any event credits at kickoff.
+Event credits: $100 in Claude API credits per person (API only, not Claude.ai). Claim at https://platform.claude.com/offers/e6957ff5-5a6b-438e-957b-d6a2a8efffba using your Org ID from [console.anthropic.com](https://console.anthropic.com), not your Claude.ai ID. One claim per person.
 
 ## 3. Decide what you are building
 
