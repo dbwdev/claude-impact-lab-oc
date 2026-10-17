@@ -18,7 +18,7 @@ Organized by Claude Community Orange County. Hosted by EvoNexus Irvine.
 - A Claude account at [claude.ai](https://claude.ai)
 - Event credits: $100 in Claude API credits per person (API only, not Claude.ai). Scan the QR code on the screen at kickoff (the claim link is also posted here at 9:00 AM). Claim using your Org ID from [console.anthropic.com](https://console.anthropic.com), not your Claude.ai ID. One claim per person
 
-Wi-Fi details are posted in the room.
+Wi-Fi: open network, no password.
 
 ## The day
 
