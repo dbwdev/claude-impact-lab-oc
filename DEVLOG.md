@@ -6,15 +6,13 @@ on top. Keep entries short: what changed, what we decided, what's next.
 ## Current state (update this block each time)
 
 - **Pipeline:** Python package in `pipeline/` (uv-managed, all deps in `pipeline/.venv`).
-  Not yet run end to end against the API: waiting on API keys in `pipeline/.env`.
+  Runs end to end with real API calls. Handoff for the app side: `pipeline/HANDOFF.md`.
 - **Integration point:** `pipeline/out/<packet>.json`, shaped by `PacketResult` in
   `pipeline/src/intake/schemas.py`. JSON Schema export: `pipeline/contract/packet-result.schema.json`.
   Teammate's Next.js + Supabase + eve app consumes this.
-- **Next:** add keys → `uv run intake run R05` → `uv run intake run --all` → `uv run intake eval`.
+- **Status:** all 11 packets run; `uv run intake eval` → 7/11 agree with IHH. API server works.
 - **Verified offline (no API):** render (R05, 14 pages in ~4 s), schema export, quote check,
   recommendation logic. An unverified "fails" goes to `needs_full_read`, not to deny.
-- **Not yet verified:** any Claude or Jev call (no keys yet). First real run may surface
-  schema/API errors; fix those first.
 
 ## How to run (from `pipeline/`)
 
@@ -98,6 +96,39 @@ write to Supabase from the Next.js side. An eve tool can do the same (POST, then
 - Refusal fallbacks (`fallbacks: "default"`) not wired yet; refusals raise `RefusalError`.
 
 ## Log
+
+### 2026-10-17 ~13:30: all 11 packets run, eval 7/11, API + handoff docs
+
+(Packet-specific clinical detail is kept out of this file on purpose: public repo. Rule IDs only.)
+
+- All 11 packets processed. ~3–5 min and ≈ $1 per fresh packet; cached reruns are free.
+- **Eval: 7/11 agree with IHH** (deny ⇔ `likely_deny_nurse_review`).
+  - Agreed: R01, R09, R10 (deny); R02, R04, R06, R11 (approve).
+  - False deny R03 (CARD-5 EF threshold, COG-2), R07 (RSP-X5), R08 (MOB-1/MOB-3, OTH-3/ID-3):
+    pipeline applied the written rule more strictly than IHH. R07/R08 look like "status during
+    the stay" read as "status at discharge". Each routes to nurse review, never auto-deny.
+  - False approve R05: flagged as judgment calls (GEN-1, OTH-1, FORM-X7), not denied.
+  - Caveat: labels have now been seen. Any prompt change from here is tuning on the eval set;
+    treat a re-score as optimistic. Best judge of the reasons: IHH staff in the room.
+- QA by eye against page images: transcripts match (checkbox level); sideways pages auto-rotate
+  upright; the review finds deep-chart facts (e.g. an exclusion only listed in a sideways MAR).
+- Jev: ~60 checks per packet in 1–9 s after adding retries (environment DNS is flaky).
+  Caught a reviewer claim on a self-contradicting page (support 0.43).
+- Fixes from QA: missing documents marked `fails` → hospital questions; superseded FORM rules
+  not "missing"; an unverified `fails` → `needs_full_read`; eval label comparison fixed.
+- Bucket tuning (decided before seeing labels): every packet was landing in `needs_full_read`.
+  Now only strong flags on decisive rules escalate (quote not found, or Jev ≥ 0.5 contradicts /
+  says nothing); any flag on a `fails` still escalates.
+- Anthropic calls also hit `APIConnectionError` under 3×8 concurrency. CLI retries a packet 3×,
+  resuming from cache.
+- Added FastAPI server (SSE), `pipeline/README.md`, `pipeline/HANDOFF.md`.
+- `usage` in a result counts only the API calls of the run that wrote it (0 for a cached rerun).
+
+**Next candidates**
+1. Prompt: judge status *at discharge to recuperative care*, not during the stay (R07/R08 pattern).
+2. Escalation pass: re-ask Claude for rules Jev flagged `unknown_may_be_answered`, with just
+   those pages (R04 had 7 such flags).
+3. Refusal fallbacks (`fallbacks: "default"`).
 
 ### 2026-10-17 ~11:45: pipeline POC scaffolded
 
