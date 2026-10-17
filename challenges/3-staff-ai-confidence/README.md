@@ -18,9 +18,4 @@ useful for their own work, and feels safe trying it.
 [`roles.md`](roles.md): role cards for an LVN or medical assistant, a referral coordinator and a
 case manager. Check them with IHH staff before you design around them.
 
-## Ask IHH
-
-Jordan and David are in the room all day. What did the last training get wrong? What would make
-you try this on a busy day? Who on the team do others copy?
-
 Made-up clients only. See the [ground rules](../../docs/ground-rules.md).

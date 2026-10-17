@@ -46,8 +46,6 @@ Before you write much code, agree on one sentence as a team:
 > **[This person]** is trying to **[do this]**, and today **[this gets in the way]**. Our tool
 > **[does this one thing]** so they can **[outcome]**.
 
-Then go and read that sentence to an IHH staff member. If they wince, change it.
-
 ## If you do not write code
 
 You are needed. Teams with someone who knows the work build better things. You can:

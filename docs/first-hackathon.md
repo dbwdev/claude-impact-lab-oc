@@ -17,9 +17,7 @@ At 4:00 PM you hand in what you have and the judges review every project. Demos 
 
 ## What usually works
 
-- **Small and working beats big and unfinished.** One person, one task, done well.
-- **Ask early.** Show a rough version to an IHH staff member before lunch. Change it based on what
-  they say.
+- **Small and working beats big and unfinished.**
 - **Decide what you are building in the first hour.** Then build.
 - **Save often.** If you are using GitHub, push your work every hour or so.
 - **Keep the demo simple.** Show the thing working on one realistic example.

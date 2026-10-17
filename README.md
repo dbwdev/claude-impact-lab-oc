@@ -54,8 +54,7 @@ cover recuperative care and the terms you will hear.
 1. **Get the files.** Use this repo as a template for your team, or download it as a ZIP.
    [Getting started](docs/getting-started.md) shows both, and three ways to work with Claude:
    in the browser, in the desktop app, or in a terminal.
-2. **Talk to IHH staff.** They are in the room all day. Ask them what would help before you build
-   much.
+2. **IHH staff are in the room all day.**
 
 ## The rules
 

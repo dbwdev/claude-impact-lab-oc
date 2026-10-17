@@ -51,10 +51,5 @@ The coordinator decides. Your tool never accepts or denies anyone.
 
 IHH never wrote down the reasons for its decisions.
 
-## Ask IHH
-
-Jordan and David are in the room all day. What do you read first? What makes you pick up the
-phone? What do hospitals get wrong most often? What would make you distrust a tool like this?
-
 No real patient information beyond these de-identified packets. See the
 [ground rules](../../docs/ground-rules.md).

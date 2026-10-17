@@ -349,9 +349,9 @@ Real rulebooks have gaps. A good tool shows the coordinator the gap instead of g
 | Registered sex offenders | The referral form says not eligible; this document says case by case. **Settled: case by case, with offenses involving violence likely denied.** Flag for the coordinator; never auto-deny. |
 | Wheelchair users | The referral form asks for "walking 100 ft. with or without DME." **Settled: this document applies.** A wheelchair-dependent patient who transfers independently and uses the chair independently is eligible. |
 | Tuberculosis; refusing detox | Listed as exclusions on the referral form, not mentioned here. The form's exclusion applies. |
-| "O2 baseline of 94% or greater with physician explanation" | Transcribed as written. Ask IHH what it means in practice. |
+| "O2 baseline of 94% or greater with physician explanation" | Transcribed as written. Meaning in practice not stated. |
 | Last A1C | The sentence is cut off in the source. |
-| "FSP" | Not spelled out in the source. Likely Full Service Partnership, a county mental-health program. Ask IHH. |
+| "FSP" | Not spelled out in the source. Likely Full Service Partnership, a county mental-health program. |
 | Insulin "less than 24 hours prior to admission" | Read as admission to recuperative care. The document does not say whether the clock starts at the first dose or when doses stop changing. |
 | DKA | Listed as ineligible. The document does not say whether DKA that has resolved still excludes. |
 | C. diff | Listed as ineligible. The document does not say whether that ends when isolation is lifted or when treatment finishes. |

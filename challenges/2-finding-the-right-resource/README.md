@@ -34,12 +34,6 @@ show the address of a domestic violence shelter.
 
 The starter list is a starting point, not a source of truth. Programs close and numbers change.
 Shelter and work are well covered by public sources. Small loans and travel home to family are thin,
-and how IHH handles them today is an open question. Ask IHH.
-
-## Ask IHH
-
-Jordan and David are in the room all day. Which resources do you refer to most? Which are harder
-to get into than they look? How do you handle small loans and travel home today? Would a client use
-this alone, or with you beside them?
+and how IHH handles them today is an open question.
 
 Made-up clients only. See the [ground rules](../../docs/ground-rules.md).
