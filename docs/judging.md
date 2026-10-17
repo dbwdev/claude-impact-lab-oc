@@ -20,7 +20,7 @@ For Challenge 1, judges may hand you a referral packet your tool has not seen an
 
 ## How winners are picked
 
-Each judge scores every submission from 1 to 5 in three areas. Scores are weighted, averaged across
+Each judge scores every finalist from 1 to 5 in three areas. Scores are weighted, averaged across
 judges, and the highest totals win. If two teams are close, the judges decide together, with IHH's
 view counting most.
 

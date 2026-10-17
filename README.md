@@ -77,7 +77,8 @@ screen recording helps. [How to submit](docs/submission.md).
 
 ## Judging
 
-The judges, including IHH, score every project from 1 to 5 in three areas. The areas are weighted:
+The judges, including IHH, review every submission and pick the finalists. Each finalist is scored
+from 1 to 5 in three areas. The areas are weighted:
 
 | Weight | Area | The question |
 |---|---|---|
@@ -107,7 +108,7 @@ docs/
   background.md        recuperative care and IHH in two pages
   glossary.md          the terms you will hear
 challenges/
-  1-referral-intake/              de-identified packets, IHH's criteria and decisions, scorer
+  1-referral-intake/              IHH's criteria and decisions (packets download from Drive)
   2-finding-the-right-resource/   resource directory, data sources, client scenarios
   3-staff-ai-confidence/          role cards
 templates/TEAM-README.md          the README your team's repo needs
