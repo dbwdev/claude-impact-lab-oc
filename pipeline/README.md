@@ -71,6 +71,42 @@ Settings (all optional, in `.env`): `INTAKE_MODEL`, `INTAKE_TRANSCRIBE_EFFORT` (
 
 Integration details for the app side: [HANDOFF.md](HANDOFF.md).
 
+## Where it gets things wrong
+
+**Agreement with IHH's real decisions: 9 of 11** (`uv run intake eval`). Treat that as
+optimistic: it was 7/11 until one prompt change (judge the patient's status at discharge, not
+during the stay) that we made after seeing which packets it missed. Eleven packets are a small
+sample, and a judge's unseen packet is the honest test.
+
+The two it still misses:
+
+| Packet | IHH | Pipeline | What happened |
+|---|---|---|---|
+| R03 | approved | likely deny → nurse review | The chart does not meet a written cardiac threshold (CARD-5), and orientation is not documented as x4 (COG-2). Either IHH used discretion beyond the written rule or the tool is too literal. A question for IHH staff |
+| R05 | denied | one call away | A psychiatric-only admission. The tool raised it as judgment calls ("too ill or frail?", GEN-1; violence history, OTH-1/FORM-X7) instead of denying, because the written rules don't exclude it outright |
+
+Known weaknesses:
+
+- **Lots of "unknown".** Missing evidence becomes "unknown" plus a question for the hospital, by
+  design. Packets come back with 14–23 open questions; some are answered somewhere in the packet.
+  Jev flags those (`unknown_may_be_answered`), but nothing re-checks them automatically yet.
+- **The transcript is AI output too.** Handwriting, faint faxes and sideways tables can be
+  misread. Quotes are checked against our transcript, not the image, so the UI must show the page
+  image next to every quote.
+- **Findings vary between runs.** Approve/deny calls were the same on all 11 packets across three
+  review setups, but individual rule findings (e.g. "meets" vs "unknown") change from run to run.
+- **Dates are blacked out**, so any rule with a time window (insulin within 24 h, 72 h after
+  alcohol, a swab within 24 h) is `cant_tell_redacted`.
+- **Adult criteria only.** The children's criteria aren't implemented.
+- **Body-system rules** (e.g. GI, neurology) are only checked for the conditions the review
+  notices; a condition it misses gets no rule check.
+- **The verifier's thresholds are cookbook defaults** (0.8 / 0.7 / 0.5), not tuned for medical
+  charts.
+- **Untested** on packets over 34 pages or on referral forms other than IHH's.
+
+What we would not trust it with: making the decision, sending a denial without a nurse's
+review, or any finding nobody checked against the cited page.
+
 ## Privacy
 
 Packet images, transcripts and results stay on the machine running the pipeline. Pages are sent
