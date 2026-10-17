@@ -6,7 +6,9 @@
 |---|---|
 | 4:00 PM | Submissions close. Judges start reviewing every submission |
 | 4:30 to 5:30 PM | Demos |
-| 5:30 PM | Judges total the scores and agree the winners. Winners announced about 5:45 PM |
+| 5:30 to 5:45 PM | Judges rank the projects and agree the winners |
+| 5:45 PM | Winners announced |
+| 6:00 PM | Closing announcement and clean up |
 
 The demo format is announced on the day. Keep your project running at your table either way.
 

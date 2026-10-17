@@ -29,9 +29,10 @@ Wi-Fi details are posted in the room.
 | 9:30 AM | Build |
 | Around noon | Lunch at the tables |
 | **4:00 PM** | **Submissions due.** Judges visit every table |
-| 4:30 PM | Demos |
-| About 5:45 PM | Winners announced |
-| 6:00 PM | Close |
+| 4:30 to 5:30 PM | Demos |
+| 5:30 PM | Judges rank |
+| 5:45 PM | Winners announced |
+| 6:00 PM | Closing announcement and clean up |
 
 ## The three challenges
 

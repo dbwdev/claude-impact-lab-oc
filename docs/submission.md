@@ -30,8 +30,8 @@ what is in your repo at 4:00.
 
 ## After 4:00
 
-Judges review every submission. Keep it running at your table. Demos run from 4:30 PM; the format
-is announced on the day. Winners are announced about 5:45 PM.
+Judges review every submission. Keep it running at your table. Demos run 4:30 to 5:30 PM; the format
+is announced on the day. Judges rank at 5:30 and winners are announced at 5:45 PM.
 
 ## After today
 
