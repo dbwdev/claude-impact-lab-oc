@@ -7,6 +7,7 @@ permissions:
   contents: write
 jobs:
   post-link:
+    if: github.repository == 'travcjohnson/claude-impact-lab-oc'   # skip in team copies made from the template
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

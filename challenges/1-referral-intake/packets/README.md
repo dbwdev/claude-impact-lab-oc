@@ -30,8 +30,8 @@ Rules for these files:
 | R10 | 21 | Fax cover; face sheet; history and physical; PT evaluation; psychiatry consult; progress notes; medication record. No IHH referral form |
 | R11 | 31 | Fax cover; IHH referral form; CalAIM authorization form; face sheet; wound and progress notes; consult and social work notes; labs and vitals scanned sideways |
 
-The PDFs are not in git. [Download them from Google Drive](https://drive.google.com/drive/folders/1ISmUtoNCTW3NJNqCQJHJzb6C319RgrXM) (**Download all**) and unzip
-them here as `R01.pdf` to `R11.pdf`. Image-only pages at 200 dpi, as a coordinator receives them.
+The PDFs are not in git. [Download them from Google Drive](https://drive.google.com/drive/folders/1ISmUtoNCTW3NJNqCQJHJzb6C319RgrXM) (**Download all**), unzip, and move
+the 11 PDFs straight into this folder as `R01.pdf` to `R11.pdf`. Git ignores them here. Image-only pages at 200 dpi, as a coordinator receives them.
 
 ## What IHH decided
 

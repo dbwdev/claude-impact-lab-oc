@@ -9,7 +9,7 @@ what is in your repo at 4:00.
    [`templates/TEAM-README.md`](../templates/TEAM-README.md).
 2. **A two-minute screen recording** of the thing working. Optional, and it makes judging much
    easier. A phone video of your screen is fine. Put the link in your README.
-3. **The submission form**, on the event hub. Submit again with the same team name to update it:
+3. **The submission form**, on the event hub. Submit again with the same team name and contact email to update it:
 
    **<https://claudesocal.com/oc-impact-lab#submit>**
 

@@ -23,5 +23,7 @@ packets-real/
 originals/
 
 # de-identified packets are hosted on Google Drive, not in git
-challenges/1-referral-intake/packets/*.pdf
-challenges/1-referral-intake/packets/R*/
+challenges/1-referral-intake/packets/*
+!challenges/1-referral-intake/packets/README.md
+*.zip
+**/R[0-9][0-9].pdf

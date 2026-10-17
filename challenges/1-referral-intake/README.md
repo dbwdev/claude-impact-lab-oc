@@ -14,8 +14,8 @@ discharged with nowhere to go. IHH promises hospitals an answer within two hours
 their time on people, not pages.
 
 **Get the packets first.** They are too big for this repo. Open the
-[packets folder on Google Drive](https://drive.google.com/drive/folders/1ISmUtoNCTW3NJNqCQJHJzb6C319RgrXM), choose **Download all**, and unzip the files into
-`challenges/1-referral-intake/packets/`, so you have `packets/R01.pdf` to `packets/R11.pdf`.
+[packets folder on Google Drive](https://drive.google.com/drive/folders/1ISmUtoNCTW3NJNqCQJHJzb6C319RgrXM), choose **Download all**, unzip, and move the 11 PDFs straight into
+`challenges/1-referral-intake/packets/`, so you have `packets/R01.pdf` to `packets/R11.pdf`. Git ignores them there.
 
 ## The work is done by hand
 
