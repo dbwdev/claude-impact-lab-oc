@@ -54,20 +54,18 @@ These are a direction, not a spec. Build what you think will help.
 | [`packets/`](packets/) | Where the 11 de-identified packets go once you [download them](https://drive.google.com/drive/folders/1ISmUtoNCTW3NJNqCQJHJzb6C319RgrXM). Image-only PDFs, as a coordinator receives them |
 | [`criteria/`](criteria/) | IHH's admission criteria and referral form: the original PDFs, transcribed, and as JSON with rule IDs |
 | [`eval/`](eval/) | IHH's real decision on each packet (7 approved, 4 denied), the output shape and a scoring script |
-| [`starter-prompt.md`](starter-prompt.md) | A prompt to paste into Claude to review your first packet |
 
 Keep `eval/decisions.json` out of your tool's sight while it reviews. IHH never wrote down the
 reasons, so working out *why* is the job.
 
-## Start
+## Check your work (optional)
 
-Paste [`starter-prompt.md`](starter-prompt.md) into Claude Code, then score the result:
+If your tool writes reviews in the shape of `eval/output-schema.json`, this compares its
+recommendations with IHH's real decisions:
 
 ```bash
 python3 challenges/1-referral-intake/eval/score.py challenges/1-referral-intake/my-output/
 ```
-
-The starter is a baseline, not the product.
 
 ## Ask IHH
 

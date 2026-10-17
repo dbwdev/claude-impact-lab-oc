@@ -17,8 +17,8 @@ useful for their own work, and feels safe trying it.
 
 These are a direction, not a spec. Build what you think will help.
 
-- **Build:** around one weekly task, not around AI. Useful within minutes, on a phone, in about 15
-  minutes. Made-up clients only, clear about what's OK to paste.
+- **Build:** around one weekly task, not around AI. Useful within minutes. Made-up clients only,
+  clear about what's OK to paste.
 - **A great demo:** a skeptical staff member finishes it without help, says "I'd use that for ___",
   and leaves with something to try on their next shift.
 - **Out of scope:** a production scribe, connecting to IHH's record system, real client data,

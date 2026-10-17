@@ -53,8 +53,7 @@ cover recuperative care and the terms you will hear.
 1. **Get the files.** Use this repo as a template for your team, or download it as a ZIP.
    [Getting started](docs/getting-started.md) shows both, and three ways to work with Claude:
    in the browser, in the desktop app, or in a terminal.
-2. **Get a first result.** Each challenge has a ready-to-paste prompt in getting started.
-3. **Talk to IHH staff.** They are in the room all day. Ask them what would help before you build
+2. **Talk to IHH staff.** They are in the room all day. Ask them what would help before you build
    much.
 
 ## The rules
@@ -100,7 +99,7 @@ README.md            this page
 CLAUDE.md            instructions Claude Code reads when you open this repo
 docs/
   first-hackathon.md   what to expect if this is your first one
-  getting-started.md   get the files, set up Claude, first prompts
+  getting-started.md   get the files, set up Claude
   ground-rules.md      the rules in full
   submission.md        what to hand in and how
   judging.md           how winners are picked

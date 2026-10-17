@@ -1,6 +1,6 @@
 # Getting started
 
-Fifteen minutes from sitting down to a first result.
+From sitting down to building.
 
 ## 1. Get the files
 
@@ -39,33 +39,7 @@ and where the data is. In the browser, add `CLAUDE.md` to your project too.
 
 Organizers share any event credits at kickoff.
 
-## 3. Get a first result
-
-Pick your challenge and ask for something small and real. In the browser, add the files each
-prompt names to your project first.
-
-**Challenge 1.** Paste the prompt in
-[`challenges/1-referral-intake/starter-prompt.md`](../challenges/1-referral-intake/starter-prompt.md).
-Claude reads the faxed packet, checks it against IHH's criteria and writes a review you can score.
-
-**Challenge 2.** Try:
-
-```text
-Read challenges/2-finding-the-right-resource/README.md, the seed directory in data/ and scenario
-C04 in scenarios/client-scenarios.json. Using only the directory, suggest up to three resources
-for this person. For each, say why it fits, what the source says about who qualifies, and how to
-make the first contact. Show the source link and the date checked. Say what you could not confirm.
-```
-
-**Challenge 3.** Try:
-
-```text
-Read challenges/3-staff-ai-confidence/README.md, roles.md and the practice-kit folder. Play the
-part of a licensed vocational nurse seeing 03-ai-draft-note.md for the first time. Then propose
-three ways to turn this kit into a ten-minute practice someone could do on a phone.
-```
-
-## 4. Decide what you are building
+## 3. Decide what you are building
 
 Before you write much code, agree on one sentence as a team:
 

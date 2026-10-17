@@ -45,8 +45,7 @@ designers, and healthcare and nonprofit people. Some have never used a terminal.
 - The team has about seven hours. Ask which challenge and which user they picked, then help them
   ship one workflow for that user. Push back on anything that looks like a portal.
 - Prefer the simplest thing that runs on a laptop and can be shown on a projector.
-- Write for the people who will use it: plain words, short sentences, large tap targets, works on
-  a phone where the user is a client or frontline staff.
+- Write for the people who will use it: plain words, short sentences.
 - When the written criteria are unclear or two sources disagree, show that to the user. Do not
   pick silently.
 - Say "unknown" when it is unknown. A confident wrong answer is the worst outcome here.
