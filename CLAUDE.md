@@ -31,20 +31,18 @@ designers, and healthcare and nonprofit people. Some have never used a terminal.
 - `docs/background.md`, `docs/glossary.md`: what recuperative care is and what the terms mean.
 - `challenges/1-referral-intake/`: admission criteria as markdown and JSON with rule IDs,
   eleven real de-identified referral packets (`packets/R01.pdf` to `R11.pdf`, image-only faxes,
-  not in git: if missing, tell the team to download them from https://drive.google.com/drive/folders/1ISmUtoNCTW3NJNqCQJHJzb6C319RgrXM), IHH's decision on each
-  (`eval/decisions.json`), and `eval/score.py`.
+  not in git: if missing, tell the team to download them from https://drive.google.com/drive/folders/1ISmUtoNCTW3NJNqCQJHJzb6C319RgrXM), and IHH's decision on
+  each (`eval/decisions.json`).
 - `challenges/2-finding-the-right-resource/`: a sourced seed directory built around the four needs
   IHH named (shelter, work, microloans, travel home), a guide to larger data sources, and twelve
   client scenarios. Keep teams on IHH clients leaving care, not a general OC directory.
-- `challenges/3-staff-ai-confidence/`: role cards and an optional practice kit. Build around one
-  weekly task for one role, not around AI.
+- `challenges/3-staff-ai-confidence/`: role cards.
 - `templates/TEAM-README.md`: what the team's README must cover before they submit.
 
 ## How to work today
 
-- The team has about seven hours. Ask which challenge and which user they picked, then help them
-  ship one workflow for that user. Push back on anything that looks like a portal.
-- Prefer the simplest thing that runs on a laptop and can be shown on a projector.
+- The team has about seven hours. Ask which challenge and which user they picked, and help them
+  build what they decide.
 - Write for the people who will use it: plain words, short sentences.
 - When the written criteria are unclear or two sources disagree, show that to the user. Do not
   pick silently.
@@ -55,10 +53,8 @@ designers, and healthcare and nonprofit people. Some have never used a terminal.
 ## Challenge 1 specifics
 
 - Rule IDs come from `challenges/1-referral-intake/criteria/admission-criteria.json`.
-- Output shape for a packet review is `challenges/1-referral-intake/eval/output-schema.json`.
 - Check the chart, not only the referral form. The form is one person's summary and can be wrong.
 - A result that is not in the packet is `unknown`, not normal.
-- Score with `python3 challenges/1-referral-intake/eval/score.py <folder-of-reviews>`.
 - When reviewing a packet, do not read `challenges/1-referral-intake/eval/decisions.json`. It
   exists for checking, not for reviewing.
 - Dates are blacked out. A rule that needs a date or a count of hours is "can't tell". A black box

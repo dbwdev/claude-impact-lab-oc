@@ -5,7 +5,7 @@
 
 **Who it's for.** An IHH client getting ready to leave recuperative care, with practical questions:
 where do I sleep, who can help me find work, can I get a small loan, can anyone help me get home to
-family? They may be on a phone alone, or sitting with a case manager.
+family?
 
 **Today.** Orange County has programs for most of these. Finding the one that fits, working out
 whether you qualify and making the first call is where people get stuck. For some needs, like help
@@ -18,18 +18,10 @@ In IHH's words, clients "can struggle searching for and accessing community reso
 specific needs." This is about IHH's clients and those four needs, not a general Orange County
 directory.
 
-## The brief
+## Guardrails
 
-These are a direction, not a spec. Build what you think will help.
-
-- **Build:** ask only what they choose to share. Suggest two or three fits and why, who qualifies,
-  what to bring, and a first-call script.
-- **A great demo:** take a scenario, show two or three fitting resources with their sources, and
-  end with a first step the person could take today.
-- **Never invent a service fact. Show the source and date. When unsure, hand off to staff. Your
-  tool sends nothing. Prepare it for the client or their case manager.**
-
-Two safety lines: if someone says they are in danger, give the hotline and bring in staff, and never
+Never invent a service fact. Show the source and date. When unsure, hand off to staff. Your tool
+sends nothing. If someone says they are in danger, give the hotline and bring in staff, and never
 show the address of a domestic violence shelter.
 
 ## What's in this folder
@@ -38,7 +30,7 @@ show the address of a domestic violence shelter.
 |---|---|
 | [`data/oc-resources.seed.json`](data/oc-resources.seed.json) | A starter list built around the four needs IHH named, plus a few extras. Every entry has a source link and the date it was checked |
 | [`data/DATA-SOURCES.md`](data/DATA-SOURCES.md) | Larger directories you can pull from, with their terms of use |
-| [`scenarios/client-scenarios.json`](scenarios/client-scenarios.json) | 12 made-up client scenarios, including some where the right move is a staff handoff |
+| [`scenarios/client-scenarios.json`](scenarios/client-scenarios.json) | 12 made-up client situations |
 
 The starter list is a starting point, not a source of truth. Programs close and numbers change.
 Shelter and work are well covered by public sources. Small loans and travel home to family are thin,

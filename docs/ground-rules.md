@@ -10,8 +10,7 @@ These rules protect those people, IHH's staff and you.
 - The Challenge 1 packets are real referrals IHH shared for this event, with every name, date,
   facility, address, number, signature and barcode blacked out. **Do not copy them into your team's
   repository**, post them, or try to work out who anyone is. Point your code at them by path.
-- Everything else is made up or already public: the clients in the scenarios and the people in the
-  practice kit are invented.
+- Everything else is made up or already public: the clients in the scenarios are invented.
 - Do not bring, type, paste, photograph or upload information about a real patient or client. That
   includes anything you know from your own job, even with the name removed.
 - IHH staff will describe their work and answer questions. They will not share real records, and

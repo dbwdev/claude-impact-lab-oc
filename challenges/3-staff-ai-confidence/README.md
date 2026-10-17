@@ -13,25 +13,10 @@ to change on a busy shift, and nervousness about their jobs.
 **If you crack it.** The gap isn't access to AI. It's the moment a staff member sees it do something
 useful for their own work, and feels safe trying it.
 
-## The brief
-
-These are a direction, not a spec. Build what you think will help.
-
-- **Build:** around one weekly task, not around AI. Useful within minutes. Made-up clients only,
-  clear about what's OK to paste.
-- **A great demo:** a skeptical staff member finishes it without help, says "I'd use that for ___",
-  and leaves with something to try on their next shift.
-- **Out of scope:** a production scribe, connecting to IHH's record system, real client data,
-  writing IHH policy. They stay in charge, and IHH can update it without a developer.
-
 ## What's in this folder
 
-| Path | What it is |
-|---|---|
-| [`roles.md`](roles.md) | Role cards: an LVN or medical assistant, a referral coordinator, a case manager |
-| [`practice-kit/`](practice-kit/) | Optional: a made-up visit, the client's care plan, an AI-drafted note with planted mistakes and its answer key, and privacy practice cards |
-
-Use the practice kit, rewrite it for your role, or ignore it.
+[`roles.md`](roles.md): role cards for an LVN or medical assistant, a referral coordinator and a
+case manager. Check them with IHH staff before you design around them.
 
 ## Ask IHH
 

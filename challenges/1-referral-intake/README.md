@@ -29,15 +29,9 @@ signature and barcode blacked out. A black box means "removed for privacy", not 
 copy the packets into your team's repo. If you spot an identifier we missed, stop and tell an
 organizer.
 
-## The brief
+## Guardrail
 
-These are a direction, not a spec. Build what you think will help.
-
-- **Build:** a tool that reads the packet, shows which criteria are met with the page and words,
-  lists what's missing, and drafts the reply.
-- **A great demo:** a coordinator opens a packet they haven't seen, gets the recommendation in
-  under a minute, fixes one thing, and has a reply ready.
-- **The coordinator decides. Your tool never accepts or denies anyone.**
+The coordinator decides. Your tool never accepts or denies anyone.
 
 ## Why it's hard
 
@@ -45,7 +39,7 @@ These are a direction, not a spec. Build what you think will help.
   chart.
 - "Not in the packet" means unknown, not normal.
 - IHH's two rule documents don't always agree. The internal admission criteria win over the
-  referral form. Where the rules run out, show the coordinator the gap instead of guessing.
+  referral form, and some cases fall in gaps between them.
 
 ## What's in this folder
 
@@ -53,19 +47,9 @@ These are a direction, not a spec. Build what you think will help.
 |---|---|
 | [`packets/`](packets/) | Where the 11 de-identified packets go once you [download them](https://drive.google.com/drive/folders/1ISmUtoNCTW3NJNqCQJHJzb6C319RgrXM). Image-only PDFs, as a coordinator receives them |
 | [`criteria/`](criteria/) | IHH's admission criteria and referral form: the original PDFs, transcribed, and as JSON with rule IDs |
-| [`eval/`](eval/) | IHH's real decision on each packet (7 approved, 4 denied), the output shape and a scoring script |
+| [`eval/decisions.json`](eval/decisions.json) | IHH's real decision on each packet: 7 approved, 4 denied |
 
-Keep `eval/decisions.json` out of your tool's sight while it reviews. IHH never wrote down the
-reasons, so working out *why* is the job.
-
-## Check your work (optional)
-
-If your tool writes reviews in the shape of `eval/output-schema.json`, this compares its
-recommendations with IHH's real decisions:
-
-```bash
-python3 challenges/1-referral-intake/eval/score.py challenges/1-referral-intake/my-output/
-```
+IHH never wrote down the reasons for its decisions.
 
 ## Ask IHH
 

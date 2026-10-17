@@ -30,7 +30,7 @@ All three work for every challenge.
 
 | | How | Good for |
 |---|---|---|
-| **In the browser** | Open [claude.ai](https://claude.ai), start a project, and add the files for your challenge | Teams that do not code, and Challenges 2 and 3 |
+| **In the browser** | Open [claude.ai](https://claude.ai), start a project, and add the files for your challenge | Teams that do not code |
 | **Claude Code in the desktop app** | Install the [Claude app](https://claude.ai/download), open Claude Code and choose your folder | Building without a terminal |
 | **Claude Code in a terminal** | Install from [claude.com/claude-code](https://claude.com/claude-code), then run `claude` in your folder | Developers |
 

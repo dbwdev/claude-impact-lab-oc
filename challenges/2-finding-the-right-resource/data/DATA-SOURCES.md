@@ -60,10 +60,7 @@ Every one of these was observed on 2026-10-13. They are the reason each seed ent
 - **Most shelters are referral-only.** Many also require ties to one city. A shelter address in your app can send someone to a locked door.
 - **Some sites block automated requests.** caloptima.org (HTTP 429), score.org (403), kiva.org (406) and anaheim.net (403) refused plain fetches. costamesaca.gov answered only when browser-like headers were sent.
 
-## Suggested ground rules for the day
+## Two rules
 
-1. Build against the seed file first. It is small on purpose.
-2. Do not scrape 211OC, OC Navigator or findhelp. If you want 211OC data, ask Orange County United Way; the national 211 API is the documented route.
-3. Never generate or "fix" a phone number, address or hours. If a field is unknown, show it as unknown and tell the person to call first.
-4. Keep the source link and the date checked next to every fact you show a client.
-5. Treat eligibility as a filter, not a footnote. City ties, age, veteran status, ID and referral requirements decide whether a resource is real for a given person.
+1. Do not scrape 211OC, OC Navigator or findhelp. If you want 211OC data, ask Orange County United Way; the national 211 API is the documented route.
+2. Never generate or "fix" a phone number, address or hours. If a field is unknown, show it as unknown.

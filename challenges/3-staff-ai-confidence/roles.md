@@ -23,8 +23,6 @@ decides whether to keep paying for the stay, and those notes are the evidence.
 with their name on it that says something that did not happen. Whether this is the first step to
 needing fewer staff.
 
-**A task worth practicing.** Checking an AI-drafted visit note against what actually happened, and
-fixing it. The practice kit in this folder is built for this.
 
 ## Referral coordinator
 
@@ -38,8 +36,6 @@ list of what to send.
 **What worries them about AI.** A tool that says yes to someone the site cannot safely care for, or
 no to someone who needed the bed. Being blamed for a machine's mistake.
 
-**A task worth practicing.** Reading an AI summary of a referral and finding what it missed or got
-wrong before replying. Challenge 1's packets and IHH's criteria make ready practice material.
 
 ## Case manager
 
@@ -51,6 +47,3 @@ dates. Letters and forms for other agencies. Looking up which resource fits whic
 
 **What worries them about AI.** Advice that sounds right and is out of date: a shelter that closed,
 a phone number that changed, an eligibility rule that no longer applies.
-
-**A task worth practicing.** Asking AI to draft a plain-language letter or a list of next steps for
-a made-up client, then checking every fact in it against a trusted source.

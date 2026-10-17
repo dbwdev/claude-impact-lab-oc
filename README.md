@@ -108,12 +108,11 @@ docs/
 challenges/
   1-referral-intake/              de-identified packets, IHH's criteria and decisions, scorer
   2-finding-the-right-resource/   resource directory, data sources, client scenarios
-  3-staff-ai-confidence/          role cards, practice kit
+  3-staff-ai-confidence/          role cards
 templates/TEAM-README.md          the README your team's repo needs
 ```
 
 ## License
 
-Code in this repo is released under the [MIT License](LICENSE). The made-up packets, scenarios
-and practice kit are dedicated to the public domain (CC0). The admission criteria and referral
+Code in this repo is released under the [MIT License](LICENSE). The made-up scenarios and role cards are dedicated to the public domain (CC0). The admission criteria and referral
 form are Illumination Health + Home's documents and remain theirs.
