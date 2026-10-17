@@ -24,7 +24,9 @@ OUT_DIR = Path(os.environ.get("INTAKE_OUT_DIR", PIPELINE_DIR / "out"))
 MODEL = os.environ.get("INTAKE_MODEL", "claude-opus-5-5")
 TRANSCRIBE_EFFORT = os.environ.get("INTAKE_TRANSCRIBE_EFFORT", "low")
 REVIEW_EFFORT = os.environ.get("INTAKE_REVIEW_EFFORT", "high")
-PAGE_WORKERS = int(os.environ.get("INTAKE_PAGE_WORKERS", "8"))
+PAGE_WORKERS = int(os.environ.get("INTAKE_PAGE_WORKERS", "32"))
+# "sectioned" = ~5 parallel review calls (faster, streams per section); "single" = one call.
+REVIEW_MODE = os.environ.get("INTAKE_REVIEW_MODE", "sectioned")
 
 # Longest page edge sent to Claude, in pixels.
 RENDER_LONG_EDGE = int(os.environ.get("INTAKE_RENDER_LONG_EDGE", "2000"))

@@ -15,8 +15,8 @@ VERSION = "0.1.0"
 
 
 def _print_events(event: str, data: dict) -> None:
-    if event in ("stage", "halt", "done"):
-        print(f"[{data.get('packet_id')}] {event}: {data.get('message', '')}")
+    if event in ("stage", "section", "halt", "done"):
+        print(f"[{data.get('packet_id')}] {event}: {data.get('message') or {k: v for k, v in data.items() if k != 'packet_id'}}")
 
 
 def run_packet(pdf_path: Path, emit=_print_events) -> PacketResult:
@@ -54,7 +54,12 @@ def run_packet(pdf_path: Path, emit=_print_events) -> PacketResult:
                               page_count=len(pages), pages=[], checklist=docs, review=None,
                               verification=[], recommendation=rec, timings_s=timings, usage=dict(llm.usage))
     else:
-        review = step("review", review_packet, packet_id, pages)
+        def on_section(name, part, seconds):
+            emit("section", {"packet_id": packet_id, "section": name, "seconds": seconds,
+                             "findings": len(part.findings),
+                             "fails": [f.rule_id for f in part.findings if f.status == "fails"]})
+
+        review = step("review", review_packet, packet_id, pages, on_section=on_section)
         flags = step("verify", verify, review, pages)
         rec = recommend(review, flags, docs)
         result = PacketResult(packet_id=packet_id, pipeline_version=VERSION, model=config.MODEL,

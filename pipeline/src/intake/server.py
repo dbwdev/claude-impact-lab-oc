@@ -104,7 +104,8 @@ def start_run(packet_id: str, force: bool = False) -> RunStarted:
     pdf = _pdf(packet_id)
     if force:
         shutil.rmtree(config.CACHE_DIR / packet_id / "transcripts", ignore_errors=True)
-        (config.CACHE_DIR / packet_id / "review.json").unlink(missing_ok=True)
+        for f in (config.CACHE_DIR / packet_id).glob("review-*.json"):
+            f.unlink()
     run = Run(run_id=uuid.uuid4().hex[:12], packet_id=packet_id)
     _runs[run.run_id] = run
 

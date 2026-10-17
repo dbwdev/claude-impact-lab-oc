@@ -38,7 +38,7 @@ so the folder holds `R01.pdf` … `R11.pdf`. The pipeline reads them in place.
 
 ```bash
 uv run intake render R05      # page images only, no API calls (quick sanity check)
-uv run intake run R05         # one packet → out/R05.json  (~3–5 min, ~$1–2)
+uv run intake run R05         # one packet → out/R05.json  (~1.5 min, ~$1.50)
 uv run intake run --all       # every packet in the folder
 uv run intake eval            # compare out/*.json with IHH's real decisions
 uv run intake serve           # HTTP API on http://127.0.0.1:8000, docs at /docs
@@ -48,10 +48,11 @@ uv run intake schema          # rewrite contract/packet-result.schema.json
 Results are cached per page and per review in `.cache/`, so a rerun or a retry after a network
 error resumes where it stopped. To redo a packet from scratch, delete `.cache/<ID>/` (or call the
 API with `force=true`). To redo only the review after a prompt change, delete
-`.cache/<ID>/review.json`.
+`.cache/<ID>/review-*.json`.
 
 Settings (all optional, in `.env`): `INTAKE_MODEL`, `INTAKE_TRANSCRIBE_EFFORT` (default `low`),
-`INTAKE_REVIEW_EFFORT` (`high`), `INTAKE_PAGE_WORKERS` (`8`), `INTAKE_PACKETS_DIR`,
+`INTAKE_REVIEW_EFFORT` (`high`), `INTAKE_REVIEW_MODE` (`sectioned` = 6 parallel calls, or
+`single`), `INTAKE_PAGE_WORKERS` (`32`), `INTAKE_PACKETS_DIR`,
 `INTAKE_JEV_AUTO_ACCEPT` (`0.8`), `INTAKE_JEV_FLAG` (`0.7`), `INTAKE_QUOTE_MATCH_MIN` (`88`).
 
 ## What is where

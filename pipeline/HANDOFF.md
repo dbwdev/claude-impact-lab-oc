@@ -47,19 +47,22 @@ The stream replays from the first event, so connecting late is fine. It closes a
 |---|---|---|
 | `stage` | `{stage, status: "started"\|"finished", seconds?, message}` | stage = `render`, `transcribe`, `review`, `verify` |
 | `page` | `{page, total, page_type, legibility, rotated}` | each page as it is read (any order) |
+| `section` | `{section, seconds, findings, fails[]}` | each of 6 parallel review sections as it finishes: `function`, `mental_health_behavior`, `infection_lines_eol`, `diabetes`, `respiratory_cardiac`, `overview` |
 | `halt` | `{pages, message}` | possible unredacted identifier: stop, tell an organizer |
 | `done` | `{bucket, message}` | result written |
 | `result` | `{bucket}` | last event on success: now fetch `result_url` |
 | `error` | `{message}` | last event on failure (usually network: just start the run again; it resumes from cache) |
 
-Typical timing for a 14–34 page packet: transcribe 20–60 s, review ~2 min, verify ~2–10 s.
-The review stage shows no progress for those ~2 minutes; show a spinner there.
+Typical timing for one packet run alone (14–34 pages): first `page` event ~5–10 s, transcribe
+~20–40 s, review ~50 s (sections land from ~25 s on), verify ~2 s: **~1.5 min end to end**
+(measured: a fresh 21-page packet in 93 s). Several packets at once slow each other down.
 
 ```ts
 const run = await fetch(`${API}/packets/${id}/runs`, { method: "POST" }).then(r => r.json());
 const es = new EventSource(`${API}${run.events_url}`);
 es.addEventListener("page", e => setPages(p => [...p, JSON.parse(e.data)]));
 es.addEventListener("stage", e => setStage(JSON.parse(e.data)));
+es.addEventListener("section", e => addSection(JSON.parse(e.data)));   // review progress
 es.addEventListener("halt", e => showPrivacyStop(JSON.parse(e.data)));
 es.addEventListener("result", async () => {
   es.close();
@@ -146,7 +149,7 @@ it is large. The agent drafts messages; it never sends them (event ground rule 2
 - **Unknown is not normal.** Render `unknown` and `cant_tell_redacted` visibly; never as a pass.
 - **A recommendation, never a decision.** Label buckets as suggestions. `[REDACTED]` in text
   means privacy redaction, not missing info.
-- **Cost and time.** A fresh run is about $1 and 3–5 minutes. Re-running a cached packet is
+- **Cost and time.** A fresh run is about $1.50 and ~1.5 minutes. Re-running a cached packet is
   free and instant. `force=true` throws the cache away: avoid it in the demo.
 - **Concurrency.** Two runs at a time; more queue. The server is single-process: run one.
 - **Network blips.** The model APIs sometimes fail with connection errors. Starting the same run

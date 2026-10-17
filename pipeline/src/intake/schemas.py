@@ -109,6 +109,15 @@ class PatientSummary(BaseModel):
     referral_form_present: bool
 
 
+class SectionReview(BaseModel):
+    """One parallel slice of the review (see review.SECTIONS)."""
+
+    findings: list[RuleFinding]
+    contradictions: list[Contradiction]
+    questions_for_hospital: list[str]
+    red_flags: list[str]
+
+
 class PacketReview(BaseModel):
     patient: PatientSummary
     findings: list[RuleFinding] = Field(description="One per rule ID in the required list.")

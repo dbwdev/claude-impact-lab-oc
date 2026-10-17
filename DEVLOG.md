@@ -11,6 +11,7 @@ on top. Keep entries short: what changed, what we decided, what's next.
   `pipeline/src/intake/schemas.py`. JSON Schema export: `pipeline/contract/packet-result.schema.json`.
   Teammate's Next.js + Supabase + eve app consumes this.
 - **Status:** all 11 packets run; `uv run intake eval` → 7/11 agree with IHH. API server works.
+  Sectioned parallel review is the default: ~1.5 min per fresh packet (was ~3.7).
 - **Verified offline (no API):** render (R05, 14 pages in ~4 s), schema export, quote check,
   recommendation logic. An unverified "fails" goes to `needs_full_read`, not to deny.
 
@@ -26,7 +27,7 @@ uv run intake eval            # agreement with IHH decisions
 uv run intake schema          # rewrite contract/packet-result.schema.json
 ```
 
-Delete `.cache/<ID>/review.json` to re-run only the review after prompt changes.
+Delete `.cache/<ID>/review-*.json` to re-run only the review after prompt changes.
 
 ## HTTP API (`uv run intake serve` → http://localhost:8000, OpenAPI at `/docs`)
 
@@ -96,6 +97,23 @@ write to Supabase from the Next.js side. An eve tool can do the same (POST, then
 - Refusal fallbacks (`fallbacks: "default"`) not wired yet; refusals raise `RefusalError`.
 
 ## Log
+
+### 2026-10-17 ~14:00: latency 2–2.5x faster with sectioned review
+
+- Baseline (single review call, 3 packets concurrent): total median ≈ 3.7 min, max ≈ 4.9 min.
+  Review was ~75% of it (120–200 s, 25–40k output tokens in one stream).
+- Change: review split into 6 parallel calls by rule section (`review.SECTIONS`); system prompt
+  and packet text cached and shared (the overview call starts first; the others start once it
+  has processed the prompt). New SSE event `section`. Page workers 8 → 32.
+- Result: review ~50 s solo (R05 120→49 s, R02 187→75 s); fresh R10 end to end 185→93 s.
+  With 5 packets concurrent, reviews take 68–102 s.
+- Guardrail: eval still 7/11, identical decision on every packet as the single-call run
+  (two different review setups agree on all 11: a stability signal).
+- Cost up a little: ~$1.50 per fresh packet (cache writes + repeated contradictions/questions).
+- Floor without fast mode is roughly 60–80 s (slowest page + slowest section). Next levers:
+  Opus fast mode (beta, 2x price, if available), review effort medium (measure first).
+- Hillclimb: judged not useful for accuracy (n=11 binary, labels seen, ±17 pt noise even at 3
+  reps); appropriate for latency/cost with accuracy as guardrail, which is what this was.
 
 ### 2026-10-17 ~13:30: all 11 packets run, eval 7/11, API + handoff docs
 
