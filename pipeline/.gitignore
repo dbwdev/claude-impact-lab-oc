@@ -1,0 +1,5 @@
+# Derived from the referral packets (page images, transcripts, results): never commit
+.cache/
+out/
+.venv/
+.env

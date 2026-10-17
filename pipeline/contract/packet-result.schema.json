@@ -1,0 +1,547 @@
+{
+  "$defs": {
+    "ChecklistItem": {
+      "properties": {
+        "doc_id": {
+          "title": "Doc Id",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "found",
+            "not_found",
+            "not_checked"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "pages": {
+          "items": {
+            "type": "integer"
+          },
+          "title": "Pages",
+          "type": "array"
+        }
+      },
+      "required": [
+        "doc_id",
+        "text",
+        "status",
+        "pages"
+      ],
+      "title": "ChecklistItem",
+      "type": "object"
+    },
+    "Contradiction": {
+      "properties": {
+        "topic": {
+          "title": "Topic",
+          "type": "string"
+        },
+        "first": {
+          "$ref": "#/$defs/Evidence"
+        },
+        "second": {
+          "$ref": "#/$defs/Evidence"
+        },
+        "why_it_matters": {
+          "title": "Why It Matters",
+          "type": "string"
+        }
+      },
+      "required": [
+        "topic",
+        "first",
+        "second",
+        "why_it_matters"
+      ],
+      "title": "Contradiction",
+      "type": "object"
+    },
+    "Evidence": {
+      "properties": {
+        "page": {
+          "title": "Page",
+          "type": "integer"
+        },
+        "quote": {
+          "description": "Exact words copied from that page's transcript.",
+          "title": "Quote",
+          "type": "string"
+        },
+        "source": {
+          "enum": [
+            "referral_form",
+            "chart",
+            "other"
+          ],
+          "title": "Source",
+          "type": "string"
+        }
+      },
+      "required": [
+        "page",
+        "quote",
+        "source"
+      ],
+      "title": "Evidence",
+      "type": "object"
+    },
+    "PacketReview": {
+      "properties": {
+        "patient": {
+          "$ref": "#/$defs/PatientSummary"
+        },
+        "findings": {
+          "description": "One per rule ID in the required list.",
+          "items": {
+            "$ref": "#/$defs/RuleFinding"
+          },
+          "title": "Findings",
+          "type": "array"
+        },
+        "condition_findings": {
+          "description": "By-body-system eligible/ineligible entries that match this patient's conditions.",
+          "items": {
+            "$ref": "#/$defs/RuleFinding"
+          },
+          "title": "Condition Findings",
+          "type": "array"
+        },
+        "contradictions": {
+          "items": {
+            "$ref": "#/$defs/Contradiction"
+          },
+          "title": "Contradictions",
+          "type": "array"
+        },
+        "questions_for_hospital": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Questions For Hospital",
+          "type": "array"
+        },
+        "red_flags": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Red Flags",
+          "type": "array"
+        }
+      },
+      "required": [
+        "patient",
+        "findings",
+        "condition_findings",
+        "contradictions",
+        "questions_for_hospital",
+        "red_flags"
+      ],
+      "title": "PacketReview",
+      "type": "object"
+    },
+    "Page": {
+      "properties": {
+        "rotate_clockwise_to_upright": {
+          "description": "Degrees to rotate the image clockwise so the main text reads upright.",
+          "enum": [
+            "0",
+            "90",
+            "180",
+            "270"
+          ],
+          "title": "Rotate Clockwise To Upright",
+          "type": "string"
+        },
+        "page_type": {
+          "enum": [
+            "fax_cover",
+            "ihh_referral_form",
+            "health_plan_authorization",
+            "face_sheet",
+            "history_and_physical",
+            "progress_note",
+            "nursing_note",
+            "pt_evaluation",
+            "ot_evaluation",
+            "social_work_note",
+            "psychiatry_or_consult_note",
+            "wound_care_note",
+            "medication_record",
+            "labs",
+            "vitals",
+            "imaging",
+            "cardiac_study",
+            "physician_orders",
+            "discharge_summary",
+            "blank_or_near_blank",
+            "other"
+          ],
+          "title": "Page Type",
+          "type": "string"
+        },
+        "document_title": {
+          "description": "Title printed on the page, or '' if none.",
+          "title": "Document Title",
+          "type": "string"
+        },
+        "legibility": {
+          "enum": [
+            "good",
+            "partial",
+            "poor"
+          ],
+          "title": "Legibility",
+          "type": "string"
+        },
+        "transcript": {
+          "description": "Faithful transcription. [REDACTED] for black boxes, [illegible] where unreadable.",
+          "title": "Transcript",
+          "type": "string"
+        },
+        "handwriting_present": {
+          "title": "Handwriting Present",
+          "type": "boolean"
+        },
+        "looks_like_prior_stay": {
+          "description": "True if the page appears to be from an earlier hospital stay than the referral.",
+          "title": "Looks Like Prior Stay",
+          "type": "boolean"
+        },
+        "possible_unredacted_identifier": {
+          "description": "True if a name, full date, phone, address, record number or similar is visible.",
+          "title": "Possible Unredacted Identifier",
+          "type": "boolean"
+        },
+        "identifier_kinds": {
+          "description": "Kinds of identifier seen (e.g. 'patient name'). Never the value itself.",
+          "items": {
+            "type": "string"
+          },
+          "title": "Identifier Kinds",
+          "type": "array"
+        },
+        "page": {
+          "description": "1-based page number in the packet PDF.",
+          "title": "Page",
+          "type": "integer"
+        },
+        "rotated_by_pipeline": {
+          "default": 0,
+          "title": "Rotated By Pipeline",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "rotate_clockwise_to_upright",
+        "page_type",
+        "document_title",
+        "legibility",
+        "transcript",
+        "handwriting_present",
+        "looks_like_prior_stay",
+        "possible_unredacted_identifier",
+        "identifier_kinds",
+        "page"
+      ],
+      "title": "Page",
+      "type": "object"
+    },
+    "PatientSummary": {
+      "description": "Clinical facts only. No names, dates or identifiers.",
+      "properties": {
+        "age": {
+          "description": "Age as stated, or 'unknown'.",
+          "title": "Age",
+          "type": "string"
+        },
+        "sex": {
+          "description": "As stated, or 'unknown'.",
+          "title": "Sex",
+          "type": "string"
+        },
+        "reason_for_hospitalization": {
+          "title": "Reason For Hospitalization",
+          "type": "string"
+        },
+        "key_conditions": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Key Conditions",
+          "type": "array"
+        },
+        "living_situation": {
+          "title": "Living Situation",
+          "type": "string"
+        },
+        "mobility_summary": {
+          "title": "Mobility Summary",
+          "type": "string"
+        },
+        "referral_form_present": {
+          "title": "Referral Form Present",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "age",
+        "sex",
+        "reason_for_hospitalization",
+        "key_conditions",
+        "living_situation",
+        "mobility_summary",
+        "referral_form_present"
+      ],
+      "title": "PatientSummary",
+      "type": "object"
+    },
+    "Recommendation": {
+      "properties": {
+        "bucket": {
+          "enum": [
+            "ready_to_accept",
+            "one_call_away",
+            "needs_full_read",
+            "likely_deny_nurse_review",
+            "halted_privacy"
+          ],
+          "title": "Bucket",
+          "type": "string"
+        },
+        "headline": {
+          "title": "Headline",
+          "type": "string"
+        },
+        "hard_fails": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Hard Fails",
+          "type": "array"
+        },
+        "open_questions": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Open Questions",
+          "type": "array"
+        },
+        "judgment_calls": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Judgment Calls",
+          "type": "array"
+        },
+        "confirm_at_admission": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Confirm At Admission",
+          "type": "array"
+        },
+        "verification_flags": {
+          "title": "Verification Flags",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "bucket",
+        "headline",
+        "hard_fails",
+        "open_questions",
+        "judgment_calls",
+        "confirm_at_admission",
+        "verification_flags"
+      ],
+      "title": "Recommendation",
+      "type": "object"
+    },
+    "RuleFinding": {
+      "properties": {
+        "rule_id": {
+          "title": "Rule Id",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "meets",
+            "fails",
+            "unknown",
+            "cant_tell_redacted",
+            "not_applicable",
+            "needs_judgment"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "claim": {
+          "description": "One plain factual sentence about the patient that the evidence should support. '' if unknown.",
+          "title": "Claim",
+          "type": "string"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/Evidence"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "reasoning": {
+          "title": "Reasoning",
+          "type": "string"
+        },
+        "confidence": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ],
+          "title": "Confidence",
+          "type": "string"
+        }
+      },
+      "required": [
+        "rule_id",
+        "status",
+        "claim",
+        "evidence",
+        "reasoning",
+        "confidence"
+      ],
+      "title": "RuleFinding",
+      "type": "object"
+    },
+    "VerificationFlag": {
+      "properties": {
+        "rule_id": {
+          "title": "Rule Id",
+          "type": "string"
+        },
+        "check": {
+          "enum": [
+            "quote_not_found",
+            "quote_on_other_page",
+            "evidence_contradicts",
+            "evidence_says_nothing",
+            "low_verifier_confidence",
+            "unknown_may_be_answered",
+            "missing_rule"
+          ],
+          "title": "Check",
+          "type": "string"
+        },
+        "detail": {
+          "title": "Detail",
+          "type": "string"
+        },
+        "verifier_score": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Verifier Score"
+        }
+      },
+      "required": [
+        "rule_id",
+        "check",
+        "detail"
+      ],
+      "title": "VerificationFlag",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "packet_id": {
+      "title": "Packet Id",
+      "type": "string"
+    },
+    "pipeline_version": {
+      "title": "Pipeline Version",
+      "type": "string"
+    },
+    "model": {
+      "title": "Model",
+      "type": "string"
+    },
+    "page_count": {
+      "title": "Page Count",
+      "type": "integer"
+    },
+    "pages": {
+      "items": {
+        "$ref": "#/$defs/Page"
+      },
+      "title": "Pages",
+      "type": "array"
+    },
+    "checklist": {
+      "items": {
+        "$ref": "#/$defs/ChecklistItem"
+      },
+      "title": "Checklist",
+      "type": "array"
+    },
+    "review": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/PacketReview"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "verification": {
+      "items": {
+        "$ref": "#/$defs/VerificationFlag"
+      },
+      "title": "Verification",
+      "type": "array"
+    },
+    "recommendation": {
+      "$ref": "#/$defs/Recommendation"
+    },
+    "timings_s": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "title": "Timings S",
+      "type": "object"
+    },
+    "usage": {
+      "additionalProperties": {
+        "type": "integer"
+      },
+      "title": "Usage",
+      "type": "object"
+    }
+  },
+  "required": [
+    "packet_id",
+    "pipeline_version",
+    "model",
+    "page_count",
+    "pages",
+    "checklist",
+    "review",
+    "verification",
+    "recommendation",
+    "timings_s",
+    "usage"
+  ],
+  "title": "PacketResult",
+  "type": "object"
+}
