@@ -33,6 +33,14 @@ def checklist(pages: list[Page]) -> list[ChecklistItem]:
     return out
 
 
+def _strong(flag: VerificationFlag) -> bool:
+    if flag.check == "quote_not_found":
+        return True
+    if flag.check in ("evidence_contradicts", "evidence_says_nothing"):
+        return (flag.verifier_score or 0) >= 0.5
+    return False
+
+
 def _label(rule_id: str, why: str) -> str:
     r = criteria.rules().get(rule_id)
     return f"{rule_id}: {why}" if r is None else f"{rule_id} ({r.text[:70]}): {why}"
@@ -63,11 +71,12 @@ def recommend(review: PacketReview, flags: list[VerificationFlag], docs: list[Ch
         if d.status == "not_found":
             open_q.append(f"{d.doc_id}: {d.text} not found in packet")
 
-    # Flags on rules that decide the outcome send the packet to a full read.
+    # Only strong flags on rules that decide the outcome send the packet to a full read. Weaker
+    # flags stay attached to their finding for the coordinator to see.
     decisive = {f.rule_id for f in review.findings + review.condition_findings
                 if f.status in ("meets", "fails") and table.get(f.rule_id)
                 and table[f.rule_id].kind in HARD_KINDS}
-    serious = [fl for fl in flags if fl.rule_id in decisive or fl.check == "missing_rule"]
+    serious = [fl for fl in flags if fl.check == "missing_rule" or (fl.rule_id in decisive and _strong(fl))]
 
     if hard_fails:
         bucket, headline = "likely_deny_nurse_review", f"{len(hard_fails)} criteria not met. Nurse review before denying."

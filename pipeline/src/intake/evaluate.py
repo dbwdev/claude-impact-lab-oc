@@ -19,8 +19,9 @@ def evaluate() -> int:
         if rec.bucket == "halted_privacy":
             rows.append((pid, truth[pid], "-", rec.bucket, rec.headline))
             continue
-        predicted = "denied" if rec.bucket == "likely_deny_nurse_review" else "approved"
-        ok = predicted == truth[pid].lower()
+        predicted = "deny" if rec.bucket == "likely_deny_nurse_review" else "approve"
+        actual = "approve" if truth[pid].lower().startswith("approv") else "deny"
+        ok = predicted == actual
         scored += 1
         correct += ok
         top = (rec.hard_fails or rec.judgment_calls or rec.open_questions or [""])[0]
@@ -31,4 +32,5 @@ def evaluate() -> int:
         print(f"{pid:7} {t:9} {p:9} {b:28} {why}")
     if scored:
         print(f"\nAgreement with IHH: {correct}/{scored}")
+        print("(predicted deny = bucket likely_deny_nurse_review; every other bucket counts as approve)")
     return 0

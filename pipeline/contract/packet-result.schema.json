@@ -432,7 +432,8 @@
             "evidence_says_nothing",
             "low_verifier_confidence",
             "unknown_may_be_answered",
-            "missing_rule"
+            "missing_rule",
+            "verifier_unavailable"
           ],
           "title": "Check",
           "type": "string"
